@@ -272,7 +272,7 @@ body{font-family:'DM Sans','Noto Sans JP','Hiragino Kaku Gothic ProN',Meiryo,san
 .sec{padding:6rem 6vw}.vis__g{grid-template-columns:1fr;gap:3rem}.vis__img{aspect-ratio:16/9;order:-1}
 .bov{grid-template-columns:1fr}.bov__l{padding:4rem 6vw}.svh{grid-template-columns:1fr;gap:2rem}
 .svg2{grid-template-columns:repeat(2,1fr)}.lg{grid-template-columns:1fr;gap:1px}
-.pf{grid-template-columns:1fr}.pc{height:400px}.ctg{grid-template-columns:1fr}
+.pf{grid-template-columns:1fr}.pc{height:400px}.ctg{grid-template-columns:minmax(0,1fr)}.ctg>*{min-width:0}
 .ft__top{flex-direction:column;gap:3rem}.ft__nav{text-align:left}.ft__nav a::before{justify-content:flex-start}
 .plh{flex-direction:column;gap:1rem}.pld{text-align:left}
 .why__grid,.ph__grid{grid-template-columns:1fr}
@@ -283,7 +283,13 @@ body{font-family:'DM Sans','Noto Sans JP','Hiragino Kaku Gothic ProN',Meiryo,san
 .ph-c:last-child{border-bottom:none}
 }
 @media(max-width:768px){
-.nav__ls{display:none}.ham{display:block}.sec{padding:5rem 5vw}
+.nav__ls{display:none}.ham{display:block}.sec{padding:5rem 24px}
+/* ★ スマホ：画面端に文字が寄り過ぎないよう左右余白を24pxに統一 */
+.nav__i{padding:1.5rem 24px}.nav--s .nav__i{padding:1rem 24px}
+.hero__c{padding:0 24px}
+.hero__up,.hero__why,.hero__ph{padding-left:24px !important;padding-right:24px !important}
+.ft{padding-left:24px;padding-right:24px}
+.ff--radio-group{flex-wrap:wrap;gap:1rem 2rem}
 .svg2{grid-template-columns:1fr}.fr{grid-template-columns:1fr}
 .hero__up{padding-top:14vh}.hero__sc{display:none}
 .vis__stats{grid-template-columns:1fr 1fr;gap:1.5rem}

@@ -17,7 +17,12 @@ interface Props {
     title: string;
     category: string;
     content: string;
+    full_content?: string;
     description: string;
+    images?: Array<{
+      url: string;
+      caption?: string;
+    }>;
     links?: Array<{
       title: string;
       url: string;
@@ -33,6 +38,13 @@ const otherNews = newsData.filter(n => n.id !== news.id).slice(0, 3);
 
 // 日付フォーマット
 const formattedDate = news.date.replace(/-/g, '.');
+
+// 本文：full_content があれば空行で段落分割、無ければ従来どおり description + content
+const paragraphs = news.full_content
+  ? news.full_content.split(/\n{2,}/).map((s) => s.trim()).filter(Boolean)
+  : [news.description, news.content].filter(Boolean);
+
+const images = news.images ?? [];
 ---
 
 <Layout title={`${news.title} | 凱信数基 Kaishin Digital Infrastructure`}>
@@ -97,18 +109,30 @@ const formattedDate = news.date.replace(/-/g, '.');
     padding: 0 2rem;
   }
 
-  .news-content__image {
-    width: 100%;
-    max-width: 800px;
-    height: 400px;
-    background: var(--gd);
-    border-radius: 4px;
-    margin: 2rem auto 3rem;
+  .news-content__images {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.5);
-    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem auto 3rem;
+  }
+
+  .news-content__figure {
+    margin: 0;
+  }
+
+  .news-content__figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .news-content__caption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(0,0,0,0.55);
+    text-align: center;
   }
 
   .news-content__text {
@@ -267,15 +291,21 @@ const formattedDate = news.date.replace(/-/g, '.');
 <!-- コンテンツセクション -->
 <section class="news-content">
   <div class="news-content__body">
-    <!-- 画像プレースホルダー（後で更新可能） -->
-    <div class="news-content__image">
-      [画像を追加予定]
-    </div>
+    <!-- 記事画像 -->
+    {images.length > 0 && (
+      <div class="news-content__images">
+        {images.map((img) => (
+          <figure class="news-content__figure">
+            <img src={img.url} alt={img.caption ?? news.title} loading="lazy" />
+            {img.caption && <figcaption class="news-content__caption">{img.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
 
     <!-- テキストコンテンツ -->
     <div class="news-content__text">
-      <p>{news.description}</p>
-      <p>{news.content}</p>
+      {paragraphs.map((p) => <p>{p}</p>)}
     </div>
 
     <!-- 関連リンク -->

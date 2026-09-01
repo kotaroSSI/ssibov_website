@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import newsData from '../data/news.json';
 
-// 日付の新しい順に並べ替え、最新5件を表示
+// 日付の新しい順（最新が一番上）に並べ替え、最新8件を常時表示
 const newsList = [...newsData]
   .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 5);
+  .slice(0, 8);
 ---
 
 <Layout title="信越科学産業株式会社 | EPC — AI Infrastructure">

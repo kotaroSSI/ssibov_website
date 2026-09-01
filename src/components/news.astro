@@ -13,8 +13,10 @@ if (kaishin_only) {
   filteredNews = newsData.filter(news => news.kaishin_related === true);
 }
 
-// 最新5件を取得
-const newsList = filteredNews.slice(0, 5);
+// 日付の新しい順（最新が一番上）に並べ替え、最新8件を常時表示
+const newsList = [...filteredNews]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 8);
 ---
 <section class="sec sec--wm" id="news" style="padding-top:4rem">
   <div class="sec__in">

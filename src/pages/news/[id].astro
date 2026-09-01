@@ -34,7 +34,10 @@ interface Props {
 const { news } = Astro.props;
 
 // JSONから他のニュースアイテムを取得（関連ニュース用）
-const otherNews = newsData.filter(n => n.id !== news.id).slice(0, 3);
+const otherNews = [...newsData]
+  .filter(n => n.id !== news.id)
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 3);
 
 // 日付フォーマット
 const formattedDate = news.date.replace(/-/g, '.');

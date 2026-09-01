@@ -11,5 +11,14 @@
   "contact_010": "Power capacity",
   "contact_011": "Location (prefecture and city)",
   "contact_012": "Special requests (up to 200 characters)",
-  "contact_013": "Daiichi Nan-oh Building 6F<br> 2-21-2 Nishi-Shimbashi, Minato-ku<br> Tokyo 105-0003, Japan<br> SSI (c/o Anchor Star)"
+  "contact_013": "Daiichi Nan-oh Building 6F<br> 2-21-2 Nishi-Shimbashi, Minato-ku<br> Tokyo 105-0003, Japan<br> SSI (c/o Anchor Star)",
+  "cf_title": "Confirm your submission",
+  "cf_lead": "The following will be sent. Please review the details and press \"Send\" if everything is correct. To make changes, press \"Back to edit\".",
+  "cf_back": "Back to edit",
+  "cf_send": "Send",
+  "cf_sending": "Sending...",
+  "cf_empty": "(not provided)",
+  "cf_error": "Sending failed. Please try again after a while.",
+  "th_title": "Your inquiry has been sent",
+  "th_body": "Thank you for your inquiry. We will review it and a member of our team will contact you."
 }

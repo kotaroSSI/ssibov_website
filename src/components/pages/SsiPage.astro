@@ -978,8 +978,8 @@ const newsList = [...newsData]
         <h2 class="st" style="color:var(--g);margin-bottom:1.5rem">{t.contact_202}</h2>
         <p class="sd" style="margin-bottom:3rem">{t.contact_203}</p>
 
-        <form class="ctf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
+        <form class="ctf" id="ssi-form" name="contact-ssi" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact-ssi" />
           <input type="hidden" name="subject" value="【仕事依頼】ホームページからの直接依頼" />
           <p style="display:none;"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -1021,6 +1021,95 @@ const newsList = [...newsData]
             <span>Submit Inquiry</span><span class="sbtn__l"></span>
           </button>
         </form>
+
+        <!-- 送信内容の確認 -->
+        <div id="ssi-confirm" style="display:none;">
+          <h3 style="font-size:1.25rem;font-weight:500;color:var(--g);margin-bottom:1rem;">{t.cf_title}</h3>
+          <p style="font-size:.9rem;color:var(--g5);line-height:1.9;margin-bottom:2rem;">{t.cf_lead}</p>
+          <table class="ct-confirm__tbl"><tbody id="ssi-confirm-rows"></tbody></table>
+          <p id="ssi-error" style="display:none;color:#a63d2f;font-size:.85rem;margin-top:1.5rem;">{t.cf_error}</p>
+          <div style="display:flex;gap:2.5rem;align-items:center;margin-top:2.5rem;flex-wrap:wrap;">
+            <button type="button" id="ssi-back" class="sbtn" style="margin-top:0;"><span>&larr; {t.cf_back}</span><span class="sbtn__l"></span></button>
+            <button type="button" id="ssi-send" class="ct-sendbtn">{t.cf_send}</button>
+          </div>
+        </div>
+
+        <!-- 送信完了 -->
+        <div id="ssi-thanks" style="display:none;">
+          <h3 style="font-size:1.25rem;font-weight:500;color:var(--g);margin-bottom:1rem;">{t.th_title}</h3>
+          <p style="font-size:.9rem;color:var(--g5);line-height:1.9;">{t.th_body}</p>
+        </div>
+
+        <script is:inline define:vars={{ ccCfg: { prefix: 'ssi', sending: t.cf_sending, send: t.cf_send, empty: t.cf_empty } }}>
+        (function () {
+          try {
+            var form = document.getElementById(ccCfg.prefix + '-form');
+            var box = document.getElementById(ccCfg.prefix + '-confirm');
+            var rows = document.getElementById(ccCfg.prefix + '-confirm-rows');
+            var thanks = document.getElementById(ccCfg.prefix + '-thanks');
+            var errEl = document.getElementById(ccCfg.prefix + '-error');
+            var back = document.getElementById(ccCfg.prefix + '-back');
+            var send = document.getElementById(ccCfg.prefix + '-send');
+            if (!form || !box) return;
+            var radioLabelEl = form.querySelector('.ff span');
+            var radioLabel = radioLabelEl ? radioLabelEl.textContent.replace(/[：:]\s*$/, '') : '';
+
+            form.addEventListener('submit', function (e) {
+              e.preventDefault();
+              if (!form.reportValidity()) return;
+              rows.innerHTML = '';
+              var items = [];
+              form.querySelectorAll('input, textarea').forEach(function (el) {
+                if (el.type === 'hidden' || el.name === 'bot-field') return;
+                if (el.type === 'radio') {
+                  if (!el.checked) return;
+                  items.push([radioLabel, el.parentElement.textContent.trim()]);
+                  return;
+                }
+                var label = (el.getAttribute('placeholder') || el.name).replace(/\s*[※*]\s*$/, '');
+                items.push([label, el.value.trim()]);
+              });
+              items.forEach(function (kv) {
+                var tr = document.createElement('tr');
+                var th = document.createElement('th'); th.textContent = kv[0];
+                var td = document.createElement('td'); td.textContent = kv[1] || ccCfg.empty;
+                tr.appendChild(th); tr.appendChild(td); rows.appendChild(tr);
+              });
+              form.style.display = 'none';
+              box.style.display = 'block';
+              errEl.style.display = 'none';
+              box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            back.addEventListener('click', function () {
+              box.style.display = 'none';
+              form.style.display = '';
+              form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            send.addEventListener('click', function () {
+              send.disabled = true;
+              send.textContent = ccCfg.sending;
+              var body = new URLSearchParams(new FormData(form)).toString();
+              fetch(window.location.pathname, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body
+              }).then(function (res) {
+                if (!res.ok) throw new Error(res.status);
+                box.style.display = 'none';
+                thanks.style.display = 'block';
+                thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }).catch(function () {
+                errEl.style.display = 'block';
+                send.disabled = false;
+                send.textContent = ccCfg.send;
+              });
+            });
+          } catch (e) {}
+        })();
+        </script>
+
       </div>
 
       <div class="rv" style="transition-delay:.2s; display:flex; flex-direction:column; gap:2rem;">

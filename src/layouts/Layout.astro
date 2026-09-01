@@ -283,6 +283,15 @@ html[lang="en"] .hero__t,html[lang="en"] .st{white-space:normal !important}
 .cti__sc{display:flex;gap:1.5rem;margin-top:3rem}
 .cti__sc a{color:var(--au);transition:color .3s}.cti__sc a:hover{color:var(--w)}
 
+/* ========== CONTACT CONFIRM ========== */
+.ct-confirm__tbl{width:100%;border-collapse:collapse;background:var(--w);border:1px solid var(--g1)}
+.ct-confirm__tbl th{width:11rem;text-align:left;vertical-align:top;padding:1rem 1.2rem;font-size:.82rem;font-weight:500;color:var(--au);border-bottom:1px solid var(--g1);letter-spacing:.05em}
+.ct-confirm__tbl td{padding:1rem 1.2rem;font-size:.9rem;font-weight:300;color:var(--ch);border-bottom:1px solid var(--g1);line-height:1.8;word-break:break-word;white-space:pre-wrap}
+.ct-sendbtn{display:inline-flex;align-items:center;background:var(--g);color:#fff;border:none;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:1rem 2.4rem;border-radius:2px;transition:background .3s;font-family:inherit}
+.ct-sendbtn:hover{background:var(--au)}
+.ct-sendbtn:disabled{opacity:.5;cursor:default}
+@media(max-width:768px){.ct-confirm__tbl th{display:block;width:auto;border-bottom:none;padding-bottom:0}.ct-confirm__tbl td{display:block;padding-top:.3rem}}
+
 /* ========== FOOTER ========== */
 .ft{background:var(--gd);padding:6rem 4vw 3rem;border-top:1px solid rgba(255,255,255,.06)}
 .ft__in{max-width:1400px;margin:0 auto}

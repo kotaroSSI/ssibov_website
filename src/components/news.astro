@@ -1,0 +1,32 @@
+---
+import newsData from '../data/news.json';
+
+interface Props {
+  kaishin_only?: boolean;
+}
+
+const { kaishin_only = false } = Astro.props;
+
+// フィルタリング: kaishin_only=true の場合は凱信関連のみ
+let filteredNews = newsData;
+if (kaishin_only) {
+  filteredNews = newsData.filter(news => news.kaishin_related === true);
+}
+
+// 最新5件を取得
+const newsList = filteredNews.slice(0, 5);
+---
+<section class="sec sec--wm" id="news" style="padding-top:4rem">
+  <div class="sec__in">
+    <div class="pl rv" style="border-top:none; padding-top:0;">
+      <div class="plh"><div class="plt">Latest News</div><div class="pld">最新のお知らせ</div></div>
+      {newsList.map((news) => (
+      <a href={`/news/${news.id}`} class="pi">
+        <span class="pi__n" style="font-size:1.1rem; font-family:'DM Sans', sans-serif;">{news.date.replace(/-/g, '.')}</span>
+        <span class="pi__nm">{news.title}</span><i data-lucide="arrow-up-right" class="pi__ar" style="width:16px;height:16px"></i>
+      </a>
+      ))}
+      {newsList.length === 0 && (<div class="pi"><span class="pi__nm" style="color:var(--g5);">現在、お知らせはありません.</span></div>)}
+    </div>
+  </div>
+</section>

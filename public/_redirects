@@ -1,0 +1,3 @@
+# 旧URL → 新URL（SSIページのリネームに伴う301リダイレクト）
+/epc      /ssi/         301
+/epc/*    /ssi/:splat   301

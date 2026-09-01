@@ -1,0 +1,307 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="信越科学産業株式会社 | 次世代AIインフラ・データセンター構築">
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "信越科学産業株式会社",
+    "alternateName": "Shinetsu Science Industry Co., Ltd.",
+    "url": "https://stately-longma-a297b8.netlify.app/"
+  }
+  </script>
+
+  <style is:global>
+    /* ========================================================= */
+    /* グローバルフォント強制適用（元のLayout.astroを邪魔しない設定） */
+    /* ========================================================= */
+    body {
+      font-family: 'DM Sans', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    }
+    .hero__t, .gw-card-title {
+      font-family: 'Noto Serif JP', serif !important;
+      font-weight: 400;
+    }
+    .nav__l span, .mmenu a span, .ft__nav a span, .ft__bot span, .ft__bot a, .hero__ey {
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    /* ★ホバー時の日本語テキスト幅切れ解消 */
+    .nav__l, .mmenu a, .ft__nav a {
+      position: relative;
+      overflow: visible !important; 
+    }
+    .nav__l::before, .mmenu a::before, .ft__nav a::before {
+      white-space: nowrap !important;
+      font-size: 1em !important; 
+      width: max-content !important; 
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      text-align: center !important;
+      display: block !important;
+    }
+
+    /* ヘッダー・ロゴはProjectページと同一（Layout.astroの既定値をそのまま使用） */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 72.5px !important; }
+    
+    /* ★ヒーローセクションの文章を左寄せに変更 */
+    .hero__up { padding-top: 0 !important; padding-bottom: 2rem; text-align: left; }
+
+    /* ========================================================= */
+    /* ★ ヒーロー文字サイズの適正化 */
+    /* （Layout既定のclamp(2.2rem,4.5vw,4.5rem)はゲートウェイページには過大なため縮小） */
+    /* ========================================================= */
+    .hero__t {
+      font-size: clamp(1.7rem, 2.6vw, 2.6rem) !important;
+      line-height: 1.5 !important;
+    }
+    /* 2行目（ゴールドの補足コピー）はメインより一段小さくして階層をつける */
+    .hero__t em {
+      display: block;
+      font-size: 0.62em;
+      margin-top: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 768px) {
+      .hero__t { font-size: 1.4rem !important; }
+    }
+  </style>
+
+  <style>
+    /* ========================================================= */
+    /* ゲートウェイ コンテンツスタイル（大型カード・ホバー動画） */
+    /* ========================================================= */
+    .gw-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 100%; box-sizing: border-box; margin: 3rem auto 5rem; animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; opacity: 0; z-index: 2; position: relative;} /* ★ 見出しコンテナ(1200px)と左右位置を揃えるためpaddingを削除 */
+    
+    .gw-card { border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); text-decoration: none; color: inherit; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s; text-align: left; min-height: 420px; }
+    .gw-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.3); }
+
+    .gw-card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); z-index: 1; transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .gw-card:hover .gw-card-bg { background: rgba(0,0,0,0.6); backdrop-filter: blur(0px); }
+
+    .gw-card-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 0; transform: scale(1.35); }
+    .gw-card:hover .gw-card-video { opacity: 1; }
+
+    .gw-card-content { position: relative; z-index: 2; padding: 48px 44px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+
+    /* アクセントライン */
+    .gw-card::after { content: ""; position: absolute; top: 0; left: 0; width: 0; height: 3px; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); z-index: 3; }
+    .gw-card-a::after { background: #1ab87c; }
+    .gw-card-b::after { background: #3a7fff; }
+    .gw-card:hover::after { width: 100%; }
+    
+    .gw-card-tag { font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 2rem; display: inline-block; padding: 7px 15px; border-radius: 20px; background: #ffffff; border: none; align-self: flex-start; text-transform: uppercase; font-weight: 600;}
+    .gw-card-a .gw-card-tag { color: #1ab87c; }
+    .gw-card-b .gw-card-tag { color: #3a7fff; }
+    .gw-card-title { font-size: 1.8rem; margin-bottom: 1.2rem; font-family: 'Noto Serif JP', serif; line-height: 1.5; color: #fff; font-weight: 400;}
+    .gw-card-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 2.5rem; flex: 1; }
+
+    .gw-card-cta { font-size: 0.95rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 10px; font-weight: 500; color: #fff;}
+    .gw-cta-arrow { width: 24px; height: 1px; background: currentColor; position: relative; transition: width 0.3s; }
+    .gw-cta-arrow::after { content: ''; position: absolute; right: 0; top: -5px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; width: 10px; height: 10px; transform: rotate(45deg); }
+    .gw-card:hover .gw-cta-arrow { width: 48px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 1024px) {
+      .gw-card-content { padding: 36px 28px; }
+      .gw-card-title { font-size: 1.5rem; }
+      .gw-card { min-height: 360px; }
+    }
+    @media (max-width: 768px) {
+      .gw-split { grid-template-columns: 1fr; padding: 0 1.5rem; }
+    }
+
+    /* フッター用追加スタイル */
+    .ft__company-info {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .ft__company-info strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .ft__company-info a {
+      color: var(--au, #cca45b);
+      text-decoration: none;
+    }
+    .ft__company-info a:hover {
+      text-decoration: underline;
+    }
+    @media (min-width: 768px) {
+      .ft__company-info {
+        flex-direction: row;
+        gap: 4rem;
+        justify-content: space-between;
+      }
+      .ft__company-details {
+        flex: 1;
+      }
+      .ft__company-licenses {
+        flex: 1;
+      }
+    }
+  </style>
+
+  <header class="nav" id="nav">
+    <div class="nav__i">
+      <a href="/" class="nav__logo"><img src="/logo/logo0001.png" alt="信越科学産業株式会社"/></a>
+      <nav class="nav__ls">
+        <a href="/project#vision" class="nav__l" data-ja="ビジョン"><span>VISION</span></a>
+        <a href="/project#about" class="nav__l" data-ja="会社紹介"><span>ABOUT US</span></a>
+        <a href="/ssi" class="nav__l" data-ja="サービス"><span>SERVICE</span></a>
+        <a href="/project#projects" class="nav__l" data-ja="プロジェクト"><span>PROJECT</span></a>
+        <a href="/project#contact" class="nav__l" data-ja="仕事依頼" style="text-align:center; line-height:1.2;"><span>CONSTRUCTION<br>REQUEST</span></a>
+      </nav>
+      <button class="ham" id="ham" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mmenu" id="mm">
+    <a href="/project#vision" onclick="cm()" data-ja="ビジョン"><span>VISION</span></a>
+    <a href="/project#about" onclick="cm()" data-ja="会社紹介"><span>ABOUT US</span></a>
+    <a href="/ssi" onclick="cm()" data-ja="サービス"><span>SERVICE</span></a>
+    <a href="/project#projects" onclick="cm()" data-ja="プロジェクト"><span>PROJECT</span></a>
+    <a href="/project#contact" onclick="cm()" data-ja="仕事依頼" style="text-align:center; line-height:1.1;"><span>CONSTRUCTION<br>REQUEST</span></a>
+  </div>
+
+  <section class="hero">
+    <div class="hero__c" style="width:100%;">
+      <div class="hero__up" style="max-width:1200px; margin:0 auto; width:100%;">
+        <p class="hero__ey">Shinetsu Science Industry Co., Ltd.</p>
+        <h1 class="hero__t" style="margin-bottom:0.5rem;">次世代AIインフラを、全ての人へ提供する<br><em>産業の開発、建設、生産、物流を加速する</em></h1>
+        <p class="hero__sub" style="margin-bottom:2rem;">目的に合わせてお進みください</p>
+        
+        <div class="gw-split">
+          <!-- ★ 投資・PM向けカードへ変更 -->
+          <a class="gw-card gw-card-a" href="/ssi" id="card-ssi">
+            <video class="gw-card-video" muted playsinline></video>
+            <div class="gw-card-bg"></div>
+            <div class="gw-card-content">
+              <span class="gw-card-tag">Development & PM</span>
+              <h2 class="gw-card-title">AIDC開発・投資<br>プロジェクトマネジメント</h2>
+              <p class="gw-card-desc">信越科学産業の提供サービスについてご紹介します。KRFTIA様及び正興電機製作所様との協業を通じて、電力供給、電力マネジメント、並びにデータセンターの投資や建設プロジェクトを組成していきます。詳細はこちら</p>
+              <span class="gw-card-cta">サービス詳細を見る<span class="gw-cta-arrow"></span></span>
+            </div>
+          </a>
+
+          <!-- ★ 1GWプロジェクト向けカード -->
+          <a class="gw-card gw-card-b" href="/project" id="card-project">
+            <video class="gw-card-video" muted playsinline></video>
+            <div class="gw-card-bg"></div>
+            <div class="gw-card-content">
+              <span class="gw-card-tag">1GW Project</span>
+              <h2 class="gw-card-title">薩摩川内１GW<br>AIデータセンター構想</h2>
+              <p class="gw-card-desc">信越科学産業と台湾CDIB Capitalとの共同事業である凱信数基株式会社（Kaishin Digital Infrastructure）プロジェクトに関する全容をご紹介します。行政や自治体関係者、パートナー、投資家関係者の皆様を含め、本構想に関心をお持ちの皆様はこちら</p>
+              <span class="gw-card-cta">プロジェクトを見る<span class="gw-cta-arrow"></span></span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <div class="ft__in">
+      <div class="ft__top">
+        <div class="ft__cta">日本の次なる産業基盤を、<br>共に創りませんか.</div>
+        <div class="ft__nav">
+          <a href="/project#vision" data-ja="ビジョン"><span>VISION</span></a>
+          <a href="/project#about" data-ja="会社紹介"><span>ABOUT US</span></a>
+          <a href="/ssi" data-ja="サービス"><span>SERVICE</span></a>
+          <a href="/project#projects" data-ja="プロジェクト"><span>PROJECT</span></a>
+          <a href="/project#contact" data-ja="仕事依頼" style="text-align:right; line-height:1.2;"><span>CONSTRUCTION<br>REQUEST</span></a>
+        </div>
+      </div>
+
+      <!-- ★追加：デベロッパー・PMとしての実体を示す会社概要とパートナー体制 -->
+      <div class="ft__company-info">
+        <div class="ft__company-details">
+          <strong>信越科学産業株式会社 (Shinetsu Science Industry Co., Ltd.)</strong>
+          〒105-0003 東京都港区西新橋2-21-2 第一南櫻ビル 6F<br>
+          Email: <a href="mailto:contact@ssibov.com">contact@ssibov.com</a><br>
+          事業内容:<br>
+          1. AIデータセンター及び電力供給システムに係る事業投資<br>
+          2. AIデータセンター及び電力インフラ分野における事業の企画・開発及び運営<br>
+          3. 前各号に関するコンサルティング並びにプロジェクトマネジメント支援
+        </div>
+        <div class="ft__company-licenses">
+          <strong>EPC・施工パートナー体制</strong>
+          主要提携先: 株式会社KRAFTIA、株式会社正興電機製作所 他<br>
+          ※当社はデベロッパー（事業主体・投資家）およびプロジェクトマネージャーとして事業全体を統括しています。実際の設計・建設施工・エンジニアリングについては、KRAFTIAを中心とする高度な専門性と確かな実績を持つパートナー企業群へ全面委託する強固な協業体制を構築しております。
+        </div>
+      </div>
+
+      <div class="ft__bot" style="margin-top: 2rem;">
+        <span>&copy; 2026 Shinetsu Science Industry Co., Ltd. All Rights Reserved.</span>
+        <div><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 指定したカードに動画リストを割り当て、順番に再生する関数
+      function setupHoverVideos(cardId, videoList) {
+        const card = document.getElementById(cardId);
+        if (!card) return;
+        const video = card.querySelector('.gw-card-video');
+        if (!video) return;
+        
+        let currentIndex = 0;
+        
+        // 最初の動画をセットしておく
+        video.src = videoList[currentIndex];
+
+        // ホバー時に再生開始
+        card.addEventListener('mouseenter', () => {
+          video.play().catch(e => console.log('Hover video play error:', e));
+        });
+
+        // マウスが外れたら一時停止
+        card.addEventListener('mouseleave', () => {
+          video.pause();
+        });
+
+        // 1つの動画が終わったら、次の動画を読み込んで再生を継続する（連続ループ）
+        video.addEventListener('ended', () => {
+          currentIndex = (currentIndex + 1) % videoList.length;
+          video.src = videoList[currentIndex];
+          video.play().catch(e => console.log('Hover video play error:', e));
+        });
+      }
+
+      // ご指定の動画リスト
+      const ssiVideos = [
+        '/movie/movie00A1.mp4', 
+        '/movie/movie00A2.mp4', 
+        '/movie/movie00A3.mp4'
+      ];
+      
+      const projectVideos = [
+        '/movie/movie00B1.mp4', 
+        '/movie/movie00B2.mp4', 
+        '/movie/movie00B3.mp4'
+      ];
+
+      // スクリプトの実行
+      setupHoverVideos('card-ssi', ssiVideos);
+      setupHoverVideos('card-project', projectVideos);
+    });
+  </script>
+</Layout>

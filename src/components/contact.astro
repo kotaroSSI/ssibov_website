@@ -1,0 +1,83 @@
+---
+---
+<section class="sec sec--wm" id="contact">
+  <div class="sec__in">
+    <div class="ctg">
+      <div class="rv">
+        <div class="ey" style="line-height:1.4;">CONSTRUCTION<br>REQUEST</div>
+        <h2 class="st" style="color:var(--g);margin-bottom:1.5rem">プロジェクト組成の依頼</h2>
+        <p class="sd" style="margin-bottom:3rem">データセンターに係るプロジェクト組成並びに建設・運営・テナント誘致のご相談</p>
+
+        <form class="ctf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="subject" value="【プロジェクト組成の依頼】ホームページからの直接依頼" />
+          <p style="display:none;"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+
+          <div class="ff" style="border-bottom: 1px solid var(--g3); padding-bottom: 1rem; margin-bottom: 1rem;">
+            <span style="display:block; font-size:0.9rem; color:var(--g5); margin-bottom:0.8rem;">依頼趣旨：</span>
+            <div style="display:flex; gap:3rem; flex-wrap:nowrap; overflow-x:auto;">
+              <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
+                <input type="radio" name="inquiry_type" value="投資" checked /> 投資
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
+                <input type="radio" name="inquiry_type" value="調査" /> 調査
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
+                <input type="radio" name="inquiry_type" value="運営・テナント誘致のご相談" /> 運営・テナント誘致のご相談
+              </label>
+            </div>
+          </div>
+
+          <div class="fr">
+            <div class="ff"><input type="text" placeholder="会社名 ※" name="company_name" required/></div>
+            <div class="ff"><input type="text" placeholder="部署名" name="department_name"/></div>
+          </div>
+          
+          <div class="fr">
+            <div class="ff"><input type="text" placeholder="ご担当者名 ※" name="contact_name" required/></div>
+            <div class="ff"><input type="email" placeholder="Email Address ※" required name="email"/></div>
+          </div>
+          
+          <div class="fr">
+            <div class="ff"><input type="text" placeholder="受電容量" name="dc_capacity"/></div>
+            <div class="ff"><input type="text" placeholder="住所（都道府県と市町村）" name="dc_address"/></div>
+          </div>
+          
+          <div class="ff">
+            <textarea rows="4" maxlength="200" placeholder="各種特殊依頼事項（200字以内）" name="special_requests"></textarea>
+          </div>
+
+          <button class="sbtn" type="submit" style="margin-top:1.5rem">
+            <span>Submit Inquiry</span><span class="sbtn__l"></span>
+          </button>
+        </form>
+      </div>
+
+      <div class="rv" style="transition-delay:.2s; display:flex; flex-direction:column; gap:2rem;">
+        
+        <div style="background:var(--gd); padding:3.5rem; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 20px 40px rgba(0,0,0,0.05);">
+          <div>
+            <div style="font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--au); font-weight:600; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(255,255,255,.08);">
+              HEADQUARTERS
+            </div>
+            <div style="font-size:0.95rem; line-height:2.2; color:#ffffff; font-weight:300;">
+              〒105-0003<br>
+              東京都港区西新橋2-21-2<br>
+              第一南櫻ビル 6F<br>
+              アンカースター内 SSI
+            </div>
+          </div>
+          <div style="display:flex; gap:1.5rem; margin-top:3.5rem;">
+            <a href="mailto:info@ssibov.com" style="color:var(--au); transition:color .3s;"><i data-lucide="mail" style="width:24px;height:24px"></i></a>
+          </div>
+        </div>
+
+        <div style="box-shadow:0 20px 40px rgba(0,0,0,0.08); width:100%; aspect-ratio: 1 / 1; position:relative;">
+          <div style="position:absolute; inset:0; background:var(--g1); z-index:0;"></div>
+          <video src="/movie/contact.mp4" autoplay muted loop playsinline style="position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block;"></video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -140,3 +140,6 @@ dist
 
 # Internal planning docs (not for deploy)
 docs/
+
+# Files staged for manual deletion
+_to_delete/

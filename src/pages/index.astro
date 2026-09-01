@@ -1,17 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// ===== 構造化データ：Google検索結果への社名＋ロゴ表示用 =====
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "信越科学産業株式会社",
+  "alternateName": ["Shinetsu Science Industry Co., Ltd.", "信越科学産業", "SSI"],
+  "url": "https://ssibov.com/",
+  "logo": "https://ssibov.com/logo/logo0001.png",
+  "image": "https://ssibov.com/logo/logo0001.png",
+  "email": "contact@ssibov.com",
+  "description": "信越科学産業株式会社は、AIデータセンター及び電力供給システムに係る事業投資、企画・開発・運営を行うデベロッパー／プロジェクトマネージャーです。",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "105-0003",
+    "streetAddress": "西新橋2-21-2 第一南櫻ビル 6F",
+    "addressLocality": "港区",
+    "addressRegion": "東京都",
+    "addressCountry": "JP"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "contact@ssibov.com",
+    "areaServed": "JP",
+    "availableLanguage": ["ja", "en"]
+  },
+  "areaServed": "JP",
+  "knowsAbout": ["AIデータセンター", "電力インフラ", "EPC", "プロジェクトマネジメント"]
+};
 ---
 
 <Layout title="信越科学産業株式会社 | 次世代AIインフラ・データセンター構築">
-  <script type="application/ld+json" is:inline>
-  {
-    "@context": "https://schema.org",
-    "@type": "Corporation",
-    "name": "信越科学産業株式会社",
-    "alternateName": "Shinetsu Science Industry Co., Ltd.",
-    "url": "https://stately-longma-a297b8.netlify.app/"
-  }
-  </script>
+<script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(orgLd)} />
 
   <style is:global>
     /* ========================================================= */

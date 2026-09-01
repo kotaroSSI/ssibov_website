@@ -42,8 +42,15 @@
     "title": "凱信数基株式会社 正式設立",
     "category": "corporate",
     "kaishin_related": true,
-    "content": "信越科学産業とCDIB Capitalの共同事業である凱信数基株式会社（Kaishin Digital Infrastructure）が正式に設立されました。日本最大級のAIデータセンタープロジェクトの実現に向けて、本格的な事業推進が開始されています。",
-    "description": "Kaishin Digital Infrastructure株式会社の正式な設立。事業推進の本格化。"
+    "description": "Kaishin Digital Infrastructure株式会社の正式な設立。事業推進の本格化。",
+    "content": "信越科学産業株式会社と台湾のCDIB Capital（中華開發資本）の共同事業である凱信数基株式会社（Kai Shin Digital Infrastructure Inc.）が、2026年1月20日に正式に設立されました。本店は鹿児島県薩摩川内市サーキュラーパーク一丁目1番地、出資比率はCDIB Capital Management 50％・信越科学産業 50％の日台合弁会社です。",
+    "full_content": "信越科学産業株式会社と台湾のCDIB Capital（中華開發資本）の共同事業である凱信数基株式会社（Kai Shin Digital Infrastructure Inc.）が、2026年1月20日に正式に設立されました。本店は鹿児島県薩摩川内市サーキュラーパーク一丁目1番地、出資比率はCDIB Capital Management 50％・信越科学産業 50％の日台合弁会社です。\n\n当社は、薩摩川内市において日本最大級のAIデータセンターの開発・建設・運営と計算資源の提供を事業とします。2025年9月の準備法人設立公表以降、鹿児島県・薩摩川内市をはじめ関係各所と協議を重ねてまいりましたが、今回の設立をもって用地の確保、電力・通信インフラの整備、許認可手続きなど事業推進を本格化させます。\n\n経営体制は、代表取締役にCDIB Capital CEOの南怡君（Melanie Nan）、取締役／CEOに信越科学産業 代表取締役会長の小坂幸太郎が就任。台湾の投資力・技術力と日本のエンジニアリング力を結集し、脱炭素電源を活用した持続可能なAIインフラの構築を通じて、地域の産業集積と人材育成に貢献してまいります。",
+    "images": [
+      {
+        "url": "/news/news_20260120_01_campus.jpg",
+        "caption": "薩摩川内AIデータセンター 完成イメージ（イメージ図）"
+      }
+    ]
   },
   {
     "id": "news_20260212",

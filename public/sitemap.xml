@@ -109,114 +109,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/news/news_20250930/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250930/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/en/news/news_20250930/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250930/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/zh/news/news_20250930/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250930/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250930/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/news/news_20260120/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260120/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/en/news/news_20260120/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260120/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/zh/news/news_20260120/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260120/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260120/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/news/news_20260212/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260212/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/en/news/news_20260212/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260212/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/zh/news/news_20260212/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260212/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260212/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/news/news_20260424/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260424/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/en/news/news_20260424/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260424/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ssibov.com/zh/news/news_20260424/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260424/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260424/"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://ssibov.com/news/news_20260718/</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260718/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260718/"/>
@@ -244,56 +136,56 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/news/news_20250815/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250815/"/>
+    <loc>https://ssibov.com/news/news_20260718_investment/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260718_investment/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/en/news/news_20250815/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250815/"/>
+    <loc>https://ssibov.com/en/news/news_20260718_investment/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260718_investment/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/zh/news/news_20250815/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250815/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250815/"/>
+    <loc>https://ssibov.com/zh/news/news_20260718_investment/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260718_investment/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260718_investment/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/news/news_20250820/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250820/"/>
+    <loc>https://ssibov.com/news/news_20260701/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260701/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/en/news/news_20250820/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250820/"/>
+    <loc>https://ssibov.com/en/news/news_20260701/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260701/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/zh/news/news_20250820/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250820/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250820/"/>
+    <loc>https://ssibov.com/zh/news/news_20260701/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260701/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260701/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -325,29 +217,137 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/news/news_20260701/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260701/"/>
+    <loc>https://ssibov.com/news/news_20260424/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260424/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/en/news/news_20260701/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260701/"/>
+    <loc>https://ssibov.com/en/news/news_20260424/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260424/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssibov.com/zh/news/news_20260701/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260701/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260701/"/>
+    <loc>https://ssibov.com/zh/news/news_20260424/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260424/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260424/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/news/news_20260212/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260212/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/en/news/news_20260212/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260212/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/zh/news/news_20260212/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260212/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260212/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/news/news_20260120/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260120/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/en/news/news_20260120/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260120/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/zh/news/news_20260120/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20260120/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20260120/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/news/news_20250930/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250930/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/en/news/news_20250930/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250930/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/zh/news/news_20250930/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250930/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250930/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/news/news_20250815/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250815/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/en/news/news_20250815/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250815/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssibov.com/zh/news/news_20250815/</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ssibov.com/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ssibov.com/en/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://ssibov.com/zh/news/news_20250815/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ssibov.com/news/news_20250815/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

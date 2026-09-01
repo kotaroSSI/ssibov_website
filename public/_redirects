@@ -1,3 +1,11 @@
 # 旧URL → 新URL（SSIページのリネームに伴う301リダイレクト）
 /epc      /ssi/         301
 /epc/*    /ssi/:splat   301
+
+# 2026-09-01: 投資計画記事の日付訂正（2025-08-20 → 2026-07-18）に伴うID変更
+/news/news_20250820      /news/news_20260718_investment/      301
+/news/news_20250820/*    /news/news_20260718_investment/      301
+/en/news/news_20250820   /en/news/news_20260718_investment/   301
+/en/news/news_20250820/* /en/news/news_20260718_investment/   301
+/zh/news/news_20250820   /zh/news/news_20260718_investment/   301
+/zh/news/news_20250820/* /zh/news/news_20260718_investment/   301

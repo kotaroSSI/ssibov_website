@@ -1,14 +1,27 @@
 ---
+import { LANGS, HTML_LANG, OG_LOCALE, localePath, type Lang } from '../i18n';
+
 interface Props {
   title: string;
   description?: string;
+  /** 表示言語（既定: ja） */
+  lang?: Lang;
+  /** 言語プレフィックスを除いたパス（例: "/ssi/"）。hreflang と言語切替リンクに使う */
+  path?: string;
 }
-const { title, description = "We Build, Operate, and Value up AI" } = Astro.props;
+const { title, description = "We Build, Operate, and Value up AI", lang = 'ja', path } = Astro.props;
 const siteUrl = "https://ssibov.com";
 const ogUrl = new URL(Astro.url.pathname, siteUrl).href;
+const siteName = lang === 'en' ? 'Shinetsu Science Industry Co., Ltd.' : lang === 'zh' ? '信越科學產業股份有限公司' : '信越科学産業株式会社';
+// hreflang 用：言語プレフィックスを除いたパスを求める（props が無ければ URL から推定）
+const basePath = path ?? (Astro.url.pathname.replace(/^\/(en|zh)(?=\/|$)/, '') || '/');
+const alternates = LANGS.map((l) => ({ l, href: new URL(localePath(l, basePath), siteUrl).href }));
+const fontHref = lang === 'zh'
+  ? "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap"
+  : "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap";
 ---
 <!DOCTYPE html>
-<html lang="ja">
+<html lang={HTML_LANG[lang]}>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +32,17 @@ const ogUrl = new URL(Astro.url.pathname, siteUrl).href;
 <meta property="og:description" content={description}>
 <meta property="og:url" content={ogUrl}>
 <link rel="canonical" href={ogUrl}>
+{alternates.map(({ l, href }) => <link rel="alternate" hreflang={HTML_LANG[l]} href={href} />)}
+<link rel="alternate" hreflang="x-default" href={alternates[0].href} />
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="信越科学産業株式会社">
-<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content={siteName}>
+<meta property="og:locale" content={OG_LOCALE[lang]}>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<link href={fontHref} rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest" is:inline></script>
 <slot name="head" />
 <style is:global>
@@ -37,6 +52,23 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'DM Sans','Noto Sans JP','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;-webkit-font-smoothing:antialiased;background:var(--cr);color:var(--ch);overflow-x:hidden}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--cr)}::-webkit-scrollbar-thumb{background:var(--g);border-radius:3px}
 ::selection{background:var(--au);color:var(--w)}
+
+/* 繁体字ページ：本文・見出しを Noto Sans/Serif TC に切り替え */
+html[lang="zh-Hant"] body{font-family:'DM Sans','Noto Sans TC','Noto Sans JP','PingFang TC','Microsoft JhengHei',sans-serif}
+html[lang="zh-Hant"] .hero__t,html[lang="zh-Hant"] .gw-card-title,html[lang="zh-Hant"] .ak-h3,html[lang="zh-Hant"] .ak-off__n,html[lang="zh-Hant"] .ph-c__title,html[lang="zh-Hant"] .news-hero__title{font-family:'Noto Serif TC','Noto Serif JP',serif !important}
+/* 英語ページ：日本語向けの nowrap 見出しは折り返しを許可 */
+html[lang="en"] .hero__t,html[lang="en"] .st{white-space:normal !important}
+
+/* ========== LANGUAGE SWITCH ========== */
+.lsw{display:flex;align-items:center;gap:.6rem;margin-left:2rem;font-family:'DM Sans','Noto Sans JP',sans-serif;font-size:10px;font-weight:600;letter-spacing:.15em}
+.lsw a{color:#8BBF9F;text-decoration:none;transition:color .3s;padding:2px 0;border-bottom:1px solid transparent}
+.lsw a:hover{color:#C9A227}
+.lsw a[aria-current="true"]{color:#C9A227;border-bottom-color:#C9A227}
+.lsw__sep{color:rgba(139,191,159,.5)}
+.mmenu .lsw{margin:1.5rem 0 0;font-size:.85rem;gap:1rem}
+.mmenu .lsw a{color:var(--g)}
+.mmenu .lsw a[aria-current="true"]{color:#C9A227}
+@media(max-width:768px){.nav__i .lsw{display:none}}
 
 /* ========== NAVIGATION ========== */
 .nav{position:fixed;top:0;left:0;width:100%;z-index:100;transition:all .6s cubic-bezier(.16,1,.3,1)}

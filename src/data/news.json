@@ -14,7 +14,31 @@
         "url": "https://www.kraftia.co.jp/",
         "organization": "株式会社クラフティア"
       }
-    ]
+    ],
+    "en": {
+      "title": "MOU Signed with Kraftia Co., Ltd.",
+      "description": "Memorandum of understanding signed with Kraftia Co., Ltd. covering the technical advisor role and extra-high-voltage substation facilities for the Satsumasendai AI data center.",
+      "content": "Kai Shin Digital Infrastructure Inc. has signed a memorandum of understanding (MOU), dated the end of August 2026, with Kraftia Co., Ltd. (headquartered in Fukuoka City) on collaboration in the AI data center project in Satsumasendai City.",
+      "full_content": "Kai Shin Digital Infrastructure Inc. has signed a memorandum of understanding (MOU), dated the end of August 2026, with Kraftia Co., Ltd. (headquartered in Fukuoka City) on collaboration in the AI data center project in Satsumasendai City.\n\nUnder the MOU, Kraftia will support Kai Shin's discussions and coordination as technical advisor to the project, and the parties will consider Kraftia's participation as an EPC (engineering, procurement and construction) partner for certain works. The parties also agreed that Kraftia will procure, build, own and operate the extra-high-voltage substation facilities for the project and establish a framework to supply electricity to the data center through power purchase agreements with the Kyushu Electric Power group and others. Together, by partnering with a Kyushu-based company well versed in the practical aspects of power and engineering, the two companies will accelerate the early opening of an AI data center premised on decarbonized power and the development of infrastructure rooted in the region.",
+      "links": [
+        {
+          "title": "Kraftia Co., Ltd. official website",
+          "organization": "Kraftia Co., Ltd."
+        }
+      ]
+    },
+    "zh": {
+      "title": "與 Kraftia 株式會社簽署 MOU",
+      "description": "與 Kraftia 株式會社就薩摩川內 AI 資料中心的技術顧問及特高壓受變電設備整備簽署合作備忘錄。",
+      "content": "凱信數基股份有限公司於 2026 年 8 月底，與 Kraftia 株式會社（總公司：福岡市）就薩摩川內市 AI 資料中心專案的合作簽署了備忘錄（MOU）。",
+      "full_content": "凱信數基股份有限公司於 2026 年 8 月底，與 Kraftia 株式會社（總公司：福岡市）就薩摩川內市 AI 資料中心專案的合作簽署了備忘錄（MOU）。\n\n本備忘錄規定，Kraftia 將以專案技術顧問的身分支援凱信數基的協商與協調，並研議其以部分工程 EPC（設計・採購・建設）夥伴身分參與的可能性。此外，雙方同意由 Kraftia 負責專案所需特高壓受變電設備的採購、建設、持有與營運，並透過與九州電力集團等簽訂購電合約，建構向資料中心供電的體制。兩公司將藉由與精通電力及工程實務的九州夥伴合作，加速以脫碳電源為前提的 AI 資料中心早期開設，以及扎根地區的基礎設施整備。",
+      "links": [
+        {
+          "title": "Kraftia 株式會社 官方網站",
+          "organization": "Kraftia 株式會社"
+        }
+      ]
+    }
   },
   {
     "id": "news_20250930",
@@ -51,7 +75,63 @@
         "url": "https://ssibov.com/",
         "organization": "信越科学産業株式会社"
       }
-    ]
+    ],
+    "en": {
+      "title": "Announcement of the Preparatory Company for Kai Shin Digital Infrastructure Inc.",
+      "description": "Taiwan's CDIB Capital and Shinetsu Science Industry announce plans to build one of Japan's largest AI data centers in Satsumasendai City.",
+      "content": "China Development Financial's CDIB Capital Group, a major Taiwanese investment company, and Shinetsu Science Industry held a press conference in Satsumasendai City, Kagoshima Prefecture, on September 30, announcing plans to build a large-scale data center (DC) in the city. Working with Circular Park Kyushu (CPQ), a Kyushu Electric Power group company building a circular society on the site of a former thermal power plant, the partners aim to locate the facility on CPQ's grounds.",
+      "full_content": "China Development Financial's CDIB Capital Group, a major Taiwanese investment company, and Shinetsu Science Industry held a press conference in Satsumasendai City, Kagoshima Prefecture, on September 30, announcing plans to build a large-scale data center (DC) in the city. Working with Circular Park Kyushu (CPQ), a Kyushu Electric Power group company building a circular society on the site of a former thermal power plant, the partners aim to locate the facility on CPQ's grounds.\n\nThe power capacity indicating the scale of the DC is 350 megawatts in the initial phase, among the largest in Japan. The initiative will capture demand growing with the spread of artificial intelligence (AI), and also looks toward the clustering of related industries — DC maintenance, parts manufacturing and the recycling of servers past their manufacturer warranty — and the development of talent. The start of operations and the investment amount will be finalized with stakeholders going forward.\n\nCDIB Executive Vice President Daniel Tsou and Michel Chu, together with Kotaro Kosaka, Chairman of Shinetsu Science Industry (headquartered in Nagano City), the Japanese partner engaged in the AI data center business, visited Satsumasendai City Hall and the Kagoshima Prefectural Government to explain the plan. Both governments had long been working to attract data centers, and Governor Koichi Shiota welcomed the plan, saying the prefecture wishes to support it.\n\nCDIB and Shinetsu Science Industry expressed their intention to begin construction as early as possible once power supply is secured and permitting procedures progress, with a policy of procuring electricity from decarbonized sources.\n\nAs the business entity in Kagoshima Prefecture, a new company, Kaishin Digital Infrastructure (凱信数基), is being established and registration is under way.",
+      "images": [
+        {
+          "caption": "Commemorative photo with Kagoshima Governor Koichi Shiota during the visit"
+        },
+        {
+          "caption": "Commemorative photo with Satsumasendai Mayor Hideo Iwakiri during the visit"
+        }
+      ],
+      "links": [
+        {
+          "title": "Establishment of a preparatory company to open one of Japan's largest AI data centers in Satsumasendai City",
+          "organization": "Circular Park Kyushu Co., Ltd."
+        },
+        {
+          "title": "CDIB Home",
+          "organization": "CDIB Capital"
+        },
+        {
+          "title": "Shinetsu Science Industry Co., Ltd. | Next-Generation AI Infrastructure & Data Center Construction",
+          "organization": "Shinetsu Science Industry Co., Ltd."
+        }
+      ]
+    },
+    "zh": {
+      "title": "凱信數基股份有限公司 籌備法人設立公告",
+      "description": "台灣中華開發資本與信越科學產業宣布，將在薩摩川內市建設日本規模數一數二的大型 AI 資料中心。",
+      "content": "台灣大型投資公司中華開發資本（CDIB Capital Group）與信越科學產業，於 9 月 30 日在鹿兒島縣薩摩川內市舉行記者會，宣布在該市建設大規模資料中心（DC）的計畫。將與在火力發電廠舊址推動循環型社會的九州電力集團公司 Circular Park Kyushu（CPQ）合作，目標進駐該公司用地。",
+      "full_content": "台灣大型投資公司中華開發資本（CDIB Capital Group）與信越科學產業，於 9 月 30 日在鹿兒島縣薩摩川內市舉行記者會，宣布在該市建設大規模資料中心（DC）的計畫。將與在火力發電廠舊址推動循環型社會的九州電力集團公司 Circular Park Kyushu（CPQ）合作，目標進駐該公司用地。\n\n代表 DC 規模的電力容量，初期階段為 350 百萬瓦，屬日本國內數一數二的規模。本計畫將承接隨人工智慧（AI）普及而增加的需求，並放眼 DC 維護、零組件製造、原廠保固到期伺服器的資源再利用等相關產業的集結與人才培育。營運時期與投資金額將於今後與相關人士共同確定。\n\nCDIB 副總經理鄒旭昇（Daniel Tsou）與 Michel Chu，以及日方合作企業、從事 AI 資料中心事業的信越科學產業（總公司：長野市）董事長小坂幸太郎，拜訪了薩摩川內市政府與鹿兒島縣政府說明計畫。兩地方政府長期致力於招攬 DC，鹽田康一知事表示歡迎：「縣將予以支持」。\n\nCDIB 與信越科學產業表明，一旦電力確保有眉目、許可等程序推進，希望盡早動工，並將採購脫碳電源的電力。\n\n作為在鹿兒島縣的事業主體，正設立新公司 Kaishin Digital Infrastructure（凱信數基），並推進登記程序。",
+      "images": [
+        {
+          "caption": "拜訪時與鹿兒島縣鹽田康一知事合影"
+        },
+        {
+          "caption": "拜訪時與薩摩川內市岩切秀雄市長合影"
+        }
+      ],
+      "links": [
+        {
+          "title": "關於為在薩摩川內市開設日本國內最大級 AI 資料中心而設立籌備法人",
+          "organization": "Circular Park Kyushu 株式會社"
+        },
+        {
+          "title": "CDIB Home",
+          "organization": "CDIB Capital"
+        },
+        {
+          "title": "信越科學產業股份有限公司 | 次世代 AI 基礎設施・資料中心建置",
+          "organization": "信越科學產業股份有限公司"
+        }
+      ]
+    }
   },
   {
     "id": "news_20260120",
@@ -67,7 +147,29 @@
         "url": "/news/news_20260120_01_campus.jpg",
         "caption": "薩摩川内AIデータセンター 完成イメージ（イメージ図）"
       }
-    ]
+    ],
+    "en": {
+      "title": "Kai Shin Digital Infrastructure Inc. Officially Established",
+      "description": "Official establishment of Kai Shin Digital Infrastructure Inc. Full-scale project execution begins.",
+      "content": "Kai Shin Digital Infrastructure Inc., a joint venture between Shinetsu Science Industry Co., Ltd. and Taiwan's CDIB Capital (China Development Capital), was officially established on January 20, 2026. Headquartered at 1-1 Circular Park, Satsumasendai City, Kagoshima Prefecture, it is a Japan–Taiwan joint venture owned 50% by CDIB Capital Management and 50% by Shinetsu Science Industry.",
+      "full_content": "Kai Shin Digital Infrastructure Inc., a joint venture between Shinetsu Science Industry Co., Ltd. and Taiwan's CDIB Capital (China Development Capital), was officially established on January 20, 2026. Headquartered at 1-1 Circular Park, Satsumasendai City, Kagoshima Prefecture, it is a Japan–Taiwan joint venture owned 50% by CDIB Capital Management and 50% by Shinetsu Science Industry.\n\nThe company's business is the development, construction and operation of one of Japan's largest AI data centers in Satsumasendai City, and the provision of computing resources. Since the announcement of the preparatory company in September 2025, we have held repeated discussions with Kagoshima Prefecture, Satsumasendai City and other stakeholders; with this establishment, we move into full-scale execution — securing the site, developing power and telecommunications infrastructure, and completing permitting procedures.\n\nMelanie Nan, CEO of CDIB Capital, has been appointed Representative Director, and Kotaro Kosaka, Chairman of Shinetsu Science Industry, Director and CEO. Bringing together Taiwan's investment and technological strength with Japan's engineering capability, we will contribute to regional industrial clustering and talent development through the construction of sustainable AI infrastructure powered by decarbonized energy.",
+      "images": [
+        {
+          "caption": "Satsumasendai AI Data Center — artist's rendering (conceptual image)"
+        }
+      ]
+    },
+    "zh": {
+      "title": "凱信數基股份有限公司 正式成立",
+      "description": "凱信數基股份有限公司正式成立，事業推進全面展開。",
+      "content": "信越科學產業股份有限公司與台灣 CDIB Capital（中華開發資本）的共同事業——凱信數基股份有限公司（Kai Shin Digital Infrastructure Inc.）於 2026 年 1 月 20 日正式成立。總公司位於鹿兒島縣薩摩川內市 Circular Park 一丁目 1 番地，出資比例為 CDIB Capital Management 50%・信越科學產業 50% 的日台合資公司。",
+      "full_content": "信越科學產業股份有限公司與台灣 CDIB Capital（中華開發資本）的共同事業——凱信數基股份有限公司（Kai Shin Digital Infrastructure Inc.）於 2026 年 1 月 20 日正式成立。總公司位於鹿兒島縣薩摩川內市 Circular Park 一丁目 1 番地，出資比例為 CDIB Capital Management 50%・信越科學產業 50% 的日台合資公司。\n\n本公司的事業為在薩摩川內市開發、建設、營運日本最大級的 AI 資料中心，並提供運算資源。自 2025 年 9 月公告設立籌備法人以來，我們與鹿兒島縣、薩摩川內市等相關單位反覆協商；隨著此次正式成立，將全面推進用地確保、電力與通訊基礎設施整備、許可程序等事業工作。\n\n經營團隊方面，由 CDIB Capital 執行長南怡君（Melanie Nan）出任代表董事，信越科學產業董事長小坂幸太郎出任董事兼 CEO。我們將匯集台灣的投資力與技術力，以及日本的工程能力，透過建構運用脫碳電源的永續 AI 基礎設施，為地區的產業集結與人才培育做出貢獻。",
+      "images": [
+        {
+          "caption": "薩摩川內 AI 資料中心 完成示意圖（概念圖）"
+        }
+      ]
+    }
   },
   {
     "id": "news_20260212",
@@ -83,7 +185,29 @@
         "url": "/news/news_20260212_01_signing.jpg",
         "caption": "「AIデータセンター早期開設に関する覚書」締結式（薩摩川内市役所、2026年2月12日）"
       }
-    ]
+    ],
+    "en": {
+      "title": "MOU Signed on the Early Opening of the AI Data Center",
+      "description": "Five parties — Satsumasendai City, Kagoshima Prefecture, Kai Shin Digital Infrastructure, Circular Park Kyushu and Kyushu Electric Power — sign an MOU on the early opening of the AI data center.",
+      "content": "On February 12, 2026, five parties — Satsumasendai City, Kagoshima Prefecture, Kai Shin Digital Infrastructure Inc., Circular Park Kyushu Co., Ltd. and Kyushu Electric Power Co., Inc. — signed the \"Memorandum of Understanding on the Early Opening of AI Data Centers\" concerning the AI data center cluster that Kai Shin plans to open in Satsumasendai City.",
+      "full_content": "On February 12, 2026, five parties — Satsumasendai City, Kagoshima Prefecture, Kai Shin Digital Infrastructure Inc., Circular Park Kyushu Co., Ltd. and Kyushu Electric Power Co., Inc. — signed the \"Memorandum of Understanding on the Early Opening of AI Data Centers\" concerning the AI data center cluster that Kai Shin plans to open in Satsumasendai City.\n\nUnder the MOU, the parties agree to the plan to open an AI data center cluster within Circular Park Kyushu and its surrounding area under the principles of the circular economy, and confirm that the five parties will cooperate in good faith, in coordination with one another, so that the opening proceeds smoothly and at an early date. A framework in which the host municipality, the prefecture, the site provider and the electric utility support Kai Shin as the project owner has thus been formally established.\n\nThe MOU is a basic agreement that does not include figures for investment or scale. Following the announcement of the preparatory company in September 2025 and the establishment of Kai Shin in January 2026, it marks a milestone on the path to an early opening.",
+      "images": [
+        {
+          "caption": "Signing ceremony for the \"Memorandum of Understanding on the Early Opening of AI Data Centers\" (Satsumasendai City Hall, February 12, 2026)"
+        }
+      ]
+    },
+    "zh": {
+      "title": "簽署「AI 資料中心早期開設備忘錄」",
+      "description": "薩摩川內市、鹿兒島縣、凱信數基、Circular Park Kyushu、九州電力五方簽署有關 AI 資料中心早期開設的備忘錄。",
+      "content": "2026 年 2 月 12 日，薩摩川內市、鹿兒島縣、凱信數基股份有限公司、Circular Park Kyushu 株式會社及九州電力株式會社五方，就凱信數基規劃於薩摩川內市開設的 AI 資料中心群，簽署了「AI 資料中心早期開設備忘錄」。",
+      "full_content": "2026 年 2 月 12 日，薩摩川內市、鹿兒島縣、凱信數基股份有限公司、Circular Park Kyushu 株式會社及九州電力株式會社五方，就凱信數基規劃於薩摩川內市開設的 AI 資料中心群，簽署了「AI 資料中心早期開設備忘錄」。\n\n備忘錄中，各方在循環經濟理念下，就在 Circular Park Kyushu 園區內及其周邊地區開設 AI 資料中心群的計畫達成共識，並確認五方將相互合作、誠意協力，使開設工作順利且早日實現。由所在地方政府、縣、用地提供者、電力公司共同支持事業主體凱信數基的架構，正式確立。\n\n本備忘錄為不含投資金額與規模數字的基本協議文件，繼 2025 年 9 月公告設立籌備法人、2026 年 1 月凱信數基成立之後，定位為邁向早期開設的重要里程碑。",
+      "images": [
+        {
+          "caption": "「AI 資料中心早期開設備忘錄」簽署儀式（薩摩川內市政府，2026 年 2 月 12 日）"
+        }
+      ]
+    }
   },
   {
     "id": "news_20260424",
@@ -93,7 +217,19 @@
     "kaishin_related": true,
     "description": "鹿児島県・薩摩川内市・凱信数基・信越科学産業が共同起草したGX戦略地域提案（データセンター集積型）が一次審査を通過。",
     "content": "2026年4月、経済産業省が推進するGX戦略地域制度において、鹿児島県、薩摩川内市、凱信数基株式会社および信越科学産業株式会社が共同で起草した「データセンター集積型」のGX戦略地域提案が一次審査を通過し、鹿児島県が有望地域に選定されました。",
-    "full_content": "2026年4月、経済産業省が推進するGX戦略地域制度において、鹿児島県、薩摩川内市、凱信数基株式会社および信越科学産業株式会社が共同で起草した「データセンター集積型」のGX戦略地域提案が一次審査を通過し、鹿児島県が有望地域に選定されました。\n\nGX戦略地域制度は、脱炭素電源の供給余力がある地域にデータセンターなどの大規模電力需要産業を集積させ、地域のGX（グリーン・トランスフォーメーション）と産業振興を同時に実現することを目的とした国の制度です。今回の提案は、薩摩川内市サーキュラーパーク九州を中核とするAIデータセンター群の構想を軸に、県・市・事業者が一体となって策定したもので、凱信数基が計画するAIデータセンターが中核プロジェクトとして位置づけられています。\n\n一次審査の通過は、本計画が国のGX政策および地方分散型データセンター政策と整合することを示す重要な節目です。現在は継続審議の段階にあり、凱信数基は鹿児島県・薩摩川内市と連携し、最終審査に向けた計画の具体化と、GX関連支援制度の活用に向けた準備を進めてまいります。"
+    "full_content": "2026年4月、経済産業省が推進するGX戦略地域制度において、鹿児島県、薩摩川内市、凱信数基株式会社および信越科学産業株式会社が共同で起草した「データセンター集積型」のGX戦略地域提案が一次審査を通過し、鹿児島県が有望地域に選定されました。\n\nGX戦略地域制度は、脱炭素電源の供給余力がある地域にデータセンターなどの大規模電力需要産業を集積させ、地域のGX（グリーン・トランスフォーメーション）と産業振興を同時に実現することを目的とした国の制度です。今回の提案は、薩摩川内市サーキュラーパーク九州を中核とするAIデータセンター群の構想を軸に、県・市・事業者が一体となって策定したもので、凱信数基が計画するAIデータセンターが中核プロジェクトとして位置づけられています。\n\n一次審査の通過は、本計画が国のGX政策および地方分散型データセンター政策と整合することを示す重要な節目です。現在は継続審議の段階にあり、凱信数基は鹿児島県・薩摩川内市と連携し、最終審査に向けた計画の具体化と、GX関連支援制度の活用に向けた準備を進めてまいります。",
+    "en": {
+      "title": "METI GX Strategic Region: First-Stage Review Passed",
+      "description": "The GX Strategic Region proposal (data center cluster type) jointly drafted by Kagoshima Prefecture, Satsumasendai City, Kai Shin Digital Infrastructure and Shinetsu Science Industry passes the first-stage review.",
+      "content": "In April 2026, under the GX Strategic Region program promoted by Japan's Ministry of Economy, Trade and Industry, the \"data center cluster\" GX Strategic Region proposal jointly drafted by Kagoshima Prefecture, Satsumasendai City, Kai Shin Digital Infrastructure Inc. and Shinetsu Science Industry Co., Ltd. passed the first-stage review, and Kagoshima Prefecture was selected as a promising region.",
+      "full_content": "In April 2026, under the GX Strategic Region program promoted by Japan's Ministry of Economy, Trade and Industry, the \"data center cluster\" GX Strategic Region proposal jointly drafted by Kagoshima Prefecture, Satsumasendai City, Kai Shin Digital Infrastructure Inc. and Shinetsu Science Industry Co., Ltd. passed the first-stage review, and Kagoshima Prefecture was selected as a promising region.\n\nThe GX Strategic Region program is a national scheme designed to concentrate industries with large power demand, such as data centers, in regions with surplus decarbonized power supply, thereby achieving regional GX (green transformation) and industrial promotion at the same time. The proposal was formulated jointly by the prefecture, the city and the operator around the concept of an AI data center cluster centered on Circular Park Kyushu in Satsumasendai City, with the AI data center planned by Kai Shin positioned as its core project.\n\nPassing the first-stage review is an important milestone demonstrating that the plan is consistent with the national GX policy and the policy of regionally distributed data centers. Deliberation is continuing, and Kai Shin, working with Kagoshima Prefecture and Satsumasendai City, will refine the plan for the final review and prepare to make use of GX-related support programs."
+    },
+    "zh": {
+      "title": "經濟產業省 GX 戰略地區 通過一次審查",
+      "description": "由鹿兒島縣、薩摩川內市、凱信數基、信越科學產業共同起草的 GX 戰略地區提案（資料中心集結型）通過一次審查。",
+      "content": "2026 年 4 月，在經濟產業省推動的 GX 戰略地區制度中，由鹿兒島縣、薩摩川內市、凱信數基股份有限公司及信越科學產業股份有限公司共同起草的「資料中心集結型」GX 戰略地區提案通過一次審查，鹿兒島縣獲選為有望地區。",
+      "full_content": "2026 年 4 月，在經濟產業省推動的 GX 戰略地區制度中，由鹿兒島縣、薩摩川內市、凱信數基股份有限公司及信越科學產業股份有限公司共同起草的「資料中心集結型」GX 戰略地區提案通過一次審查，鹿兒島縣獲選為有望地區。\n\nGX 戰略地區制度是日本的國家制度，目的在於將資料中心等大規模用電產業集結至脫碳電源供應有餘裕的地區，同時實現地區的 GX（綠色轉型）與產業振興。本次提案以薩摩川內市 Circular Park Kyushu 為核心的 AI 資料中心群構想為主軸，由縣、市、事業者一體擬定，凱信數基規劃的 AI 資料中心被定位為核心專案。\n\n通過一次審查，是顯示本計畫符合國家 GX 政策及地方分散型資料中心政策的重要里程碑。目前處於持續審議階段，凱信數基將與鹿兒島縣、薩摩川內市合作，具體化計畫以因應最終審查，並為活用 GX 相關支援制度做好準備。"
+    }
   },
   {
     "id": "news_20260718",
@@ -120,7 +256,47 @@
         "url": "https://www.nikkei.com/article/DGXZQOJC180G50Y6A710C2000000/",
         "organization": "日本経済新聞"
       }
-    ]
+    ],
+    "en": {
+      "title": "Location Agreement Signed with Satsumasendai City",
+      "description": "Location agreement signed with Satsumasendai City for the phased development of an AI data center of up to 350MW and approx. JPY 850 billion at Circular Park Kyushu.",
+      "content": "On July 18, 2026, Kai Shin Digital Infrastructure Inc. and Satsumasendai City signed a location agreement for the construction of an AI data center. According to the city's announcement, the plan is to develop in stages one of Japan's largest AI data centers, with a cumulative capacity of 350 megawatts, within Circular Park Kyushu (CPQ), the former Sendai thermal power plant site redeveloped by the Kyushu Electric Power group (1-1 Circular Park).",
+      "full_content": "On July 18, 2026, Kai Shin Digital Infrastructure Inc. and Satsumasendai City signed a location agreement for the construction of an AI data center. According to the city's announcement, the plan is to develop in stages one of Japan's largest AI data centers, with a cumulative capacity of 350 megawatts, within Circular Park Kyushu (CPQ), the former Sendai thermal power plant site redeveloped by the Kyushu Electric Power group (1-1 Circular Park).\n\nThe planned investment is approximately JPY 850 billion at the 350-megawatt stage. In addition, related investment of approximately JPY 2 trillion — including server installation and maintenance — is expected across the entire Circular Park Kyushu site. According to the Nikkei, part of the facility is scheduled to begin operation in fiscal 2027, with expansion continuing into the early 2030s. Kai Shin is funded by Taiwan's China Development Capital (CDIB Capital Group) and Shinetsu Science Industry (Minato-ku, Tokyo).\n\nSatsumasendai City expects the agreement to promote the location and clustering of information-service and related industries, leading to regional economic revitalization and job creation. The city also positions the project as a key initiative toward realizing \"Satsumasendai, the Circular City\" and a major step toward selection as a GX Strategic Region, and has stated its intention to accelerate GX. Building on this agreement — which follows the five-party MOU in February and passage of the first-stage GX Strategic Region review in April — Kai Shin will proceed with preparations for an early start of construction and opening.",
+      "links": [
+        {
+          "title": "Location agreement for the AI data center signed on July 18, 2026",
+          "organization": "Satsumasendai City"
+        },
+        {
+          "title": "Kaishin Digital Infrastructure Inc. (Satsumasendai City: July 18, 2026)",
+          "organization": "Kagoshima Prefecture Business Location Guide"
+        },
+        {
+          "title": "Taiwan's CDIB Capital and others to invest JPY 850 billion in Kagoshima data center",
+          "organization": "Nikkei"
+        }
+      ]
+    },
+    "zh": {
+      "title": "與薩摩川內市簽署進駐協定",
+      "description": "與薩摩川內市簽署進駐協定。將在 Circular Park Kyushu 分階段整備累計 350MW、約 8,500 億日圓規模的 AI 資料中心。",
+      "content": "2026 年 7 月 18 日，凱信數基股份有限公司（Kaishin Digital Infrastructure）與薩摩川內市簽署了 AI 資料中心建設的進駐協定。根據薩摩川內市的公告，計畫在九州電力集團將川內火力發電廠舊址再開發而成的 Circular Park Kyushu（CPQ）園區內（Circular Park 一丁目 1 番地），分階段整備累計 350 百萬瓦、日本國內最大級的 AI 資料中心。",
+      "full_content": "2026 年 7 月 18 日，凱信數基股份有限公司（Kaishin Digital Infrastructure）與薩摩川內市簽署了 AI 資料中心建設的進駐協定。根據薩摩川內市的公告，計畫在九州電力集團將川內火力發電廠舊址再開發而成的 Circular Park Kyushu（CPQ）園區內（Circular Park 一丁目 1 番地），分階段整備累計 350 百萬瓦、日本國內最大級的 AI 資料中心。\n\n預定投資金額在 350 百萬瓦階段約為 8,500 億日圓。此外，包含伺服器安裝與維護等，預期整個 Circular Park Kyushu 園區將帶來約 2 兆日圓的相關投資。據日本經濟新聞報導，計畫於 2027 年度啟用部分設施，並持續擴充至 2030 年代前半。凱信數基由台灣的中華開發資本（CDIB Capital Group）與信越科學產業（東京・港區）出資。\n\n薩摩川內市表示，期待本協定促進資訊服務產業及相關產業的進駐與集結，帶動地方經濟活化與創造就業。市方並將本事業定位為實現「循環都市・薩摩川內市」的重要措施，以及邁向 GX 戰略地區獲選的一大步，表明將加速推動 GX。凱信數基將以繼 2 月五方備忘錄、4 月 GX 戰略地區通過一次審查之後的本協定為基礎，推進早期動工與開設的準備。",
+      "links": [
+        {
+          "title": "令和 8 年 7 月 18 日 簽署 AI 資料中心進駐協定",
+          "organization": "薩摩川內市"
+        },
+        {
+          "title": "Kaishin Digital Infrastructure 株式會社（薩摩川內市：R8/7/18）",
+          "organization": "鹿兒島縣企業進駐指南"
+        },
+        {
+          "title": "台灣 CDIB 中華開發資本等，投資 8,500 億日圓於鹿兒島資料中心",
+          "organization": "日本經濟新聞"
+        }
+      ]
+    }
   },
   {
     "id": "news_20250815",
@@ -131,7 +307,17 @@
     "content": "台湾のプライベートエクイティ企業CDIBキャピタルが、信越科学産業と共同で鹿児島県薩摩川内市に大型AIデータセンター施設の建設を発表。日本経済新聞が報道。国際的なテクノロジー企業による日本への重要な投資案件として注目を集めています。",
     "description": "台湾CDIBキャピタルによる日本への大型データセンター投資発表。",
     "source": "日本経済新聞",
-    "characterCount": 85
+    "characterCount": 85,
+    "en": {
+      "title": "Taiwan's CDIB Capital to Build a Large AI Data Center in Kagoshima Prefecture",
+      "description": "Taiwan's CDIB Capital announces a major data center investment in Japan.",
+      "content": "CDIB Capital, a Taiwanese private equity firm, announced that it will build a large AI data center facility in Satsumasendai City, Kagoshima Prefecture, jointly with Shinetsu Science Industry, as reported by the Nikkei. The project is drawing attention as a significant investment in Japan by an international technology player."
+    },
+    "zh": {
+      "title": "台灣 CDIB 中華開發資本 將在鹿兒島縣建設大型 AI 資料中心",
+      "description": "台灣 CDIB 中華開發資本宣布對日本的大型資料中心投資。",
+      "content": "台灣私募股權公司 CDIB 中華開發資本宣布，將與信越科學產業共同在鹿兒島縣薩摩川內市建設大型 AI 資料中心設施。日本經濟新聞報導。本案作為國際科技企業對日本的重要投資案，備受關注。"
+    }
   },
   {
     "id": "news_20250820",
@@ -142,7 +328,17 @@
     "content": "凱信数基プロジェクトにおける総投資額が8500億円に達することが明らかになりました。この投資規模は、日本国内のAIデータセンター施設としても極めて大きな案件となり、地域経済への波及効果が期待されています。電力インフラ、冷却システム、セキュリティ施設を含む本格的な施設整備が計画されています。",
     "description": "総投資額8500億円の大規模投資計画。地域経済への波及効果も期待。",
     "source": "日本経済新聞",
-    "characterCount": 145
+    "characterCount": 145,
+    "en": {
+      "title": "Satsumasendai AI Data Center: Investment Plan of JPY 850 Billion Announced",
+      "description": "A large-scale investment plan totaling JPY 850 billion, with ripple effects expected for the regional economy.",
+      "content": "It has been announced that total investment in the Kai Shin Digital Infrastructure project will reach JPY 850 billion. This scale of investment makes it an exceptionally large project even among AI data center facilities in Japan, and ripple effects on the regional economy are expected. Full-scale facility development is planned, including power infrastructure, cooling systems and security facilities."
+    },
+    "zh": {
+      "title": "薩摩川內 AI 資料中心 公布 8,500 億日圓規模投資計畫",
+      "description": "總投資額 8,500 億日圓的大規模投資計畫，並期待對地方經濟的擴散效應。",
+      "content": "凱信數基專案的總投資額確定將達 8,500 億日圓。此投資規模在日本國內的 AI 資料中心設施中亦屬極為龐大的案件，預期將對地方經濟帶來擴散效應。計畫進行包含電力基礎設施、冷卻系統、安全設施在內的全面設施整備。"
+    }
   },
   {
     "id": "news_20260615",
@@ -153,7 +349,17 @@
     "content": "九州電力およびソニー系企業が、薩摩川内市とのAIデータセンター集積構想において協業体制を整備することを発表。再生可能エネルギーの活用、エネルギー効率化、そして先端技術の導入を通じた「スマートエネルギーハブ」の構想が進められています。凱信数基プロジェクトとの連携により、九州全域をデータセンター拠点として発展させる戦略が加速しています。",
     "description": "九州電力・ソニー系との協業。スマートエネルギーハブ構想の推進。",
     "source": "日本経済新聞",
-    "characterCount": 168
+    "characterCount": 168,
+    "en": {
+      "title": "Kyushu Electric Power and a Sony Group Company Collaborate on Data Center Clustering in Satsumasendai",
+      "description": "Collaboration with Kyushu Electric Power and a Sony group company to advance the Smart Energy Hub concept.",
+      "content": "Kyushu Electric Power and a Sony group company announced that they will establish a collaborative framework for the AI data center clustering concept with Satsumasendai City. A \"Smart Energy Hub\" concept is being advanced through the use of renewable energy, improved energy efficiency and the introduction of advanced technologies. In coordination with the Kai Shin Digital Infrastructure project, the strategy to develop the whole of Kyushu as a data center hub is gaining momentum."
+    },
+    "zh": {
+      "title": "九州電力與 Sony 集團企業 就薩摩川內資料中心集結展開合作",
+      "description": "與九州電力及 Sony 集團企業合作，推動智慧能源樞紐構想。",
+      "content": "九州電力及 Sony 集團企業宣布，將就與薩摩川內市的 AI 資料中心集結構想建立合作體制。透過活用再生能源、提升能源效率及導入先進技術，正推動「智慧能源樞紐」構想。藉由與凱信數基專案的合作，將整個九州發展為資料中心據點的策略正在加速。"
+    }
   },
   {
     "id": "news_20260701",
@@ -164,6 +370,16 @@
     "content": "日本経済新聞による『2025年以降に開業する国内データセンター施設調査』において、凱信数基（薩摩川内市）が主要プロジェクトの一つとして掲載。20社29施設を対象とした業界調査の中で、凱信数基は最大級の投資規模と戦略的重要性を備えたプロジェクトとして位置付けられています。",
     "description": "日経新聞の主要データセンター施設調査に凱信数基が掲載。",
     "source": "日本経済新聞 Xtech",
-    "characterCount": 135
+    "characterCount": 135,
+    "en": {
+      "title": "Kai Shin Featured in the Nikkei's \"Survey of Data Center Facilities Opening from 2025\"",
+      "description": "Kai Shin Digital Infrastructure featured in the Nikkei's survey of major data center facilities.",
+      "content": "In the Nikkei's \"Survey of Domestic Data Center Facilities Opening from 2025,\" Kai Shin Digital Infrastructure (Satsumasendai City) was featured as one of the major projects. Within this industry survey covering 29 facilities of 20 companies, Kai Shin is positioned as a project with one of the largest investment scales and the greatest strategic importance."
+    },
+    "zh": {
+      "title": "凱信數基獲刊載於日經新聞《2025 年以後開業的資料中心設施調查》",
+      "description": "凱信數基獲刊載於日經新聞的主要資料中心設施調查。",
+      "content": "在日本經濟新聞的《2025 年以後開業的國內資料中心設施調查》中，凱信數基（薩摩川內市）被列為主要專案之一。在這項涵蓋 20 家公司、29 座設施的產業調查中，凱信數基被定位為投資規模最大級且具有戰略重要性的專案。"
+    }
   }
 ]

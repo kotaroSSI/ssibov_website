@@ -1,0 +1,14 @@
+---
+// 言語切替（JA | EN | 繁體）。ナビとモバイルメニューの両方に置く。
+import { LANGS, LANG_SHORT, LANG_LABEL, localePath, type Lang } from '../i18n';
+interface Props { lang: Lang; path: string; }
+const { lang, path } = Astro.props;
+---
+<div class="lsw" aria-label="Language">
+  {LANGS.map((l, i) => (
+    <>
+      {i > 0 && <span class="lsw__sep">|</span>}
+      <a href={localePath(l, path)} hreflang={l === 'zh' ? 'zh-Hant' : l} lang={l === 'zh' ? 'zh-Hant' : l} aria-current={l === lang ? 'true' : undefined} title={LANG_LABEL[l]}>{LANG_SHORT[l]}</a>
+    </>
+  ))}
+</div>

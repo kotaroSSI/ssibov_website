@@ -1,9 +1,14 @@
 ---
+import { dict, makeL, localizeNews, type Lang } from '../i18n';
+interface Props { lang?: Lang; kaishin_only?: boolean }
+const { lang = 'ja' } = Astro.props as Props;
+const t = dict('aboutksdi', lang);
+const L = makeL(lang);
 // 凱信数基株式会社 会社紹介（ABOUT US）
 // project.astro の <About /> と差し替えて表示するコンポーネント。
 // ナビ・フッター・index.astro からのリンク（/project#about）を維持するため id="about" を保持している。
 ---
-<style>
+<style is:global>
   /* ========================================================= */
   /* 凱信数基 会社紹介（スコープ付きスタイル） */
   /* ========================================================= */
@@ -114,64 +119,64 @@
     <!-- 見出し・キャッチコピー・リード -->
     <div class="rv" style="max-width:820px">
       <div class="ey">About Us — Kai Shin Digital Infrastructure</div>
-      <h2 class="st">南九州から、<br>日本のAI計算基盤をつくる。</h2>
-      <p class="ak-lead"><strong>凱信数基株式会社</strong>は、鹿児島県薩摩川内市でAIデータセンターを開発・運営する事業会社です.</p>
+      <h2 class="st"><Fragment set:html={t.about_001} /></h2>
+      <p class="ak-lead"><Fragment set:html={t.about_002} /></p>
     </div>
 
     <!-- 私たちについて -->
     <div class="ak-blk rv">
       <div class="ak-two">
         <div>
-          <div class="ak-sub">私たちについて</div>
-          <h3 class="ak-h3">脱炭素電力に恵まれた鹿児島に、<br>地産地消で動く計算基盤を。</h3>
+          <div class="ak-sub">{t.about_003}</div>
+          <h3 class="ak-h3"><Fragment set:html={t.about_004} /></h3>
         </div>
-        <p class="ak-p" style="color:rgba(255,255,255,.75)">AIの普及で計算資源の需要は急拡大する一方、データセンターは都市圏に集中し、電力確保と脱炭素の両立が課題です. 私たちはこの課題に鹿児島での大規模データセンター整備で応え、県・市・九州電力とともに南九州にGW級のAIインフラ集積を実現します.</p>
+        <p class="ak-p" style="color:rgba(255,255,255,.75)">{t.about_005}</p>
       </div>
 
       <!-- 3つの約束 -->
       <div class="ak-pro">
         <div class="ak-pro__c">
           <div class="ak-pro__n">01</div>
-          <div class="ak-pro__t">脱炭素電力で動かす</div>
-          <div class="ak-pro__d">県内の原子力・地熱・水力を中心に、使用電力の全量を脱炭素電力で調達し、過半を県内電源から確保.</div>
+          <div class="ak-pro__t">{t.about_006}</div>
+          <div class="ak-pro__d">{t.about_007}</div>
         </div>
         <div class="ak-pro__c">
           <div class="ak-pro__n">02</div>
-          <div class="ak-pro__t">地域とともに成長する</div>
-          <div class="ak-pro__d">地元採用・人材育成・地場発注で地域産業に根付く.</div>
+          <div class="ak-pro__t">{t.about_008}</div>
+          <div class="ak-pro__d">{t.about_009}</div>
         </div>
         <div class="ak-pro__c">
           <div class="ak-pro__n">03</div>
-          <div class="ak-pro__t">日本の産業競争力に貢献する</div>
-          <div class="ak-pro__d">製造・半導体・物流など九州の産業集積にAI計算資源を提供.</div>
+          <div class="ak-pro__t">{t.about_010}</div>
+          <div class="ak-pro__d">{t.about_011}</div>
         </div>
       </div>
     </div>
 
     <!-- 私たちの強み -->
     <div class="ak-blk rv">
-      <div class="ak-sub">私たちの強み</div>
-      <h3 class="ak-h3">GW級を見据えた電力・冷却・調達の一体設計</h3>
+      <div class="ak-sub">{t.about_012}</div>
+      <h3 class="ak-h3">{t.about_013}</h3>
       <div class="ak-str">
         <div class="ak-str__c">
           <div class="ak-str__i"><i data-lucide="zap" style="width:22px;height:22px"></i></div>
-          <div class="ak-str__t">220kV受電と1GWへの拡張性</div>
-          <div class="ak-str__d">特別高圧受電を起点に、需要に応じてGW級まで段階拡張できる電力インフラ.</div>
+          <div class="ak-str__t">{t.about_014}</div>
+          <div class="ak-str__d">{t.about_015}</div>
         </div>
         <div class="ak-str__c">
           <div class="ak-str__i"><i data-lucide="droplets" style="width:22px;height:22px"></i></div>
-          <div class="ak-str__t">液冷ハイブリッド</div>
-          <div class="ak-str__d">高発熱AIサーバーを高密度収容し、PUE 1.2以下を目標.</div>
+          <div class="ak-str__t">{t.about_016}</div>
+          <div class="ak-str__d">{t.about_017}</div>
         </div>
         <div class="ak-str__c">
           <div class="ak-str__i"><i data-lucide="layers" style="width:22px;height:22px"></i></div>
-          <div class="ak-str__t">モジュール工法</div>
-          <div class="ak-str__d">短工期で先行稼働し、需要に応じて段階増設.</div>
+          <div class="ak-str__t">{t.about_018}</div>
+          <div class="ak-str__d">{t.about_019}</div>
         </div>
         <div class="ak-str__c">
           <div class="ak-str__i"><i data-lucide="globe" style="width:22px;height:22px"></i></div>
-          <div class="ak-str__t">日台連携</div>
-          <div class="ak-str__d">台湾のODM・投資ネットワークと日本のEPC・運営力を一体化.</div>
+          <div class="ak-str__t">{t.about_020}</div>
+          <div class="ak-str__d">{t.about_021}</div>
         </div>
       </div>
     </div>
@@ -187,64 +192,64 @@
 
     <!-- 地域とともに -->
     <div class="rv">
-      <div class="ey">地域とともに</div>
-      <h2 class="st" style="color:var(--g)">鹿児島県の政策に沿って</h2>
-      <p class="sd">鹿児島県が掲げる政策目標に沿い、事業を通じて地域に貢献します.</p>
+      <div class="ey">{t.company_022}</div>
+      <h2 class="st" style="color:var(--g)">{t.company_023}</h2>
+      <p class="sd">{t.company_024}</p>
 
       <div class="ak-tbl-wrap">
         <table class="ak-tbl ak-tbl--pol">
           <thead>
-            <tr><th>鹿児島県の政策</th><th>掲げられた方向性</th><th>当社の取り組み</th></tr>
+            <tr><th>{t.company_025}</th><th>{t.company_026}</th><th>{t.company_027}</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td data-l="鹿児島県の政策">かごしま未来創造ビジョン（改訂版・2022年3月）</td>
-              <td data-l="掲げられた方向性">基本目標「誰もが安心して暮らし、活躍できる鹿児島」. 「稼ぐ力」の向上、「デジタルテクノロジーを活用した県民の暮らしの質の向上」、「脱炭素社会の実現と豊かな自然環境の共生」</td>
-              <td data-l="当社の取り組み">AIインフラ集積による新産業の創出と、県内企業・大学への計算資源の開放</td>
+              <td data-l="鹿児島県の政策">{t.company_028}</td>
+              <td data-l="掲げられた方向性">{t.company_029}</td>
+              <td data-l="当社の取り組み">{t.company_030}</td>
             </tr>
             <tr>
-              <td data-l="鹿児島県の政策">鹿児島県地球温暖化対策実行計画（2026年3月改定）</td>
-              <td data-l="掲げられた方向性">2030年度 温室効果ガス排出量46%削減、2050年カーボンニュートラル</td>
-              <td data-l="当社の取り組み">事業所電力の全量脱炭素化により、大規模需要家として県の排出削減目標に寄与</td>
+              <td data-l="鹿児島県の政策">{t.company_031}</td>
+              <td data-l="掲げられた方向性">{t.company_032}</td>
+              <td data-l="当社の取り組み">{t.company_033}</td>
             </tr>
             <tr>
-              <td data-l="鹿児島県の政策">鹿児島県再生可能エネルギー導入ビジョン2023</td>
-              <td data-l="掲げられた方向性">「地域と共生した再生可能エネルギーの導入促進」「再生可能エネルギーを活用した地域の活性化」、エネルギーの地産地消</td>
-              <td data-l="当社の取り組み">地産地消の大口需要家として、県内の脱炭素電源への投資を後押し</td>
+              <td data-l="鹿児島県の政策">{t.company_034}</td>
+              <td data-l="掲げられた方向性">{t.company_035}</td>
+              <td data-l="当社の取り組み">{t.company_036}</td>
             </tr>
             <tr>
-              <td data-l="鹿児島県の政策">かごしま製造業振興方針／第2期まち・ひと・しごと創生総合戦略</td>
-              <td data-l="掲げられた方向性">企業立地の促進、高校生・大学生の県内就職率の維持向上</td>
-              <td data-l="当社の取り組み">運転開始時約100人の直接雇用（県内採用中心）、ポリテクカレッジ川内・鹿児島大学・鹿児島純心大学等との人材育成</td>
+              <td data-l="鹿児島県の政策">{t.company_037}</td>
+              <td data-l="掲げられた方向性">{t.company_038}</td>
+              <td data-l="当社の取り組み">{t.company_039}</td>
             </tr>
             <tr>
-              <td data-l="鹿児島県の政策">GX戦略地域制度（2026年4月・有望地域）</td>
-              <td data-l="掲げられた方向性">鹿児島県が「データセンター集積型」で有望地域に選定（一次審査通過、継続審議中）</td>
-              <td data-l="当社の取り組み">本事業を中核プロジェクトとして推進</td>
+              <td data-l="鹿児島県の政策">{t.company_040}</td>
+              <td data-l="掲げられた方向性">{t.company_041}</td>
+              <td data-l="当社の取り組み">{t.company_042}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="ak-note">あわせてJDCC「データセンター地域共生ガイドライン」に準拠し、地域対話窓口の設置や災害時の地域協力を進めます.</p>
+      <p class="ak-note">{t.company_043}</p>
     </div>
 
     <!-- 会社概要 -->
     <div class="ak-blk ak-blk--l rv">
       <div class="ak-two">
         <div>
-          <div class="ak-sub">会社概要</div>
-          <h3 class="ak-h3">凱信数基株式会社<br><span style="font-size:.85rem;color:var(--g5);font-family:'DM Sans',sans-serif;letter-spacing:.05em">Kai Shin Digital Infrastructure Inc.</span></h3>
+          <div class="ak-sub">{t.company_044}</div>
+          <h3 class="ak-h3"><Fragment set:html={t.company_045} /><span style="font-size:.85rem;color:var(--g5);font-family:'DM Sans',sans-serif;letter-spacing:.05em">Kai Shin Digital Infrastructure Inc.</span></h3>
         </div>
         <table class="ak-dl ak-dl--l">
           <tbody>
-            <tr><th>商号</th><td>凱信数基株式会社（Kai Shin Digital Infrastructure Inc.）</td></tr>
-            <tr><th>本店</th><td>鹿児島県薩摩川内市サーキュラーパーク一丁目1番地</td></tr>
-            <tr><th>設立</th><td>2026年1月20日</td></tr>
-            <tr><th>資本金</th><td>500万円（資本準備金 500万円）</td></tr>
-            <tr><th>株主</th><td>CDIB Capital Management（中華開發資本）50%／信越科学産業株式会社 50%</td></tr>
-            <tr><th>代表者</th><td>代表取締役 南 怡君</td></tr>
-            <tr><th>事業内容</th><td>AIデータセンターの開発・建設・運営、計算資源の提供</td></tr>
-            <tr><th>決算期</th><td>12月</td></tr>
+            <tr><th>{t.company_046}</th><td>{t.company_047}</td></tr>
+            <tr><th>{t.company_048}</th><td>{t.company_049}</td></tr>
+            <tr><th>{t.company_050}</th><td>{t.company_051}</td></tr>
+            <tr><th>{t.company_052}</th><td>{t.company_053}</td></tr>
+            <tr><th>{t.company_054}</th><td>{t.company_055}</td></tr>
+            <tr><th>{t.company_056}</th><td>{t.company_057}</td></tr>
+            <tr><th>{t.company_058}</th><td>{t.company_059}</td></tr>
+            <tr><th>{t.company_060}</th><td>{t.company_061}</td></tr>
           </tbody>
         </table>
       </div>
@@ -252,54 +257,54 @@
 
     <!-- 役員 -->
     <div class="ak-blk ak-blk--l rv">
-      <div class="ak-sub">役員</div>
-      <h3 class="ak-h3">日台の投資・技術・エンジニアリングを束ねる経営陣</h3>
+      <div class="ak-sub">{t.company_062}</div>
+      <h3 class="ak-h3">{t.company_063}</h3>
       <div class="ak-off">
         <div class="ak-off__c">
-          <div class="ak-off__r">代表取締役</div>
-          <div class="ak-off__n">南 怡君</div>
+          <div class="ak-off__r">{t.company_064}</div>
+          <div class="ak-off__n">{t.company_065}</div>
           <div class="ak-off__e">Melanie Nan</div>
           <div class="ak-off__d">CDIB Capital CEO</div>
         </div>
         <div class="ak-off__c">
-          <div class="ak-off__r">取締役／CEO</div>
-          <div class="ak-off__n">小坂 幸太郎</div>
+          <div class="ak-off__r">{t.company_066}</div>
+          <div class="ak-off__n">{t.company_067}</div>
           <div class="ak-off__e">Kotaro Kosaka</div>
-          <div class="ak-off__d">信越科学産業株式会社 代表取締役会長</div>
+          <div class="ak-off__d">{t.company_068}</div>
         </div>
         <div class="ak-off__c">
           <div class="ak-off__r">CEO</div>
-          <div class="ak-off__n">鄒 旭昇</div>
+          <div class="ak-off__n">{t.company_069}</div>
           <div class="ak-off__e">Daniel Tsou</div>
-          <div class="ak-off__d">CDIB Capital 副総経理</div>
+          <div class="ak-off__d">{t.company_070}</div>
         </div>
         <div class="ak-off__c">
           <div class="ak-off__r">CTO</div>
           <div class="ak-off__n">Michel Chu</div>
           <div class="ak-off__e">&nbsp;</div>
-          <div class="ak-off__d">元ITIC CEO、台湾大学電機工学部教授</div>
+          <div class="ak-off__d">{t.company_071}</div>
         </div>
         <div class="ak-off__c">
-          <div class="ak-off__r">電力事業本部長</div>
-          <div class="ak-off__n">佐坂 吾郎</div>
+          <div class="ak-off__r">{t.company_072}</div>
+          <div class="ak-off__n">{t.company_073}</div>
           <div class="ak-off__e">Goro Sasaka</div>
-          <div class="ak-off__d">信越科学産業株式会社 代表取締役社長</div>
+          <div class="ak-off__d">{t.company_074}</div>
         </div>
       </div>
     </div>
 
     <!-- 主なパートナー -->
     <div class="ak-blk ak-blk--l rv">
-      <div class="ak-sub">主なパートナー</div>
-      <h3 class="ak-h3">行政・地域企業・金融・エンジニアリングとの連携</h3>
+      <div class="ak-sub">{t.company_075}</div>
+      <h3 class="ak-h3">{t.company_076}</h3>
       <div class="ak-ptn">
-        <span>鹿児島県</span>
-        <span>薩摩川内市</span>
-        <span>株式会社クラフティア</span>
-        <span>正興電機製作所</span>
-        <span>地域金融機関各社</span>
-        <span>東京海上</span>
-        <span>日本工営</span>
+        <span>{t.company_077}</span>
+        <span>{t.company_078}</span>
+        <span>{t.company_079}</span>
+        <span>{t.company_080}</span>
+        <span>{t.company_081}</span>
+        <span>{t.company_082}</span>
+        <span>{t.company_083}</span>
       </div>
     </div>
 

@@ -1,11 +1,12 @@
 ---
+import { dict, makeL, localizeNews, type Lang } from '../i18n';
+interface Props { lang?: Lang; kaishin_only?: boolean }
+const { lang = 'ja' } = Astro.props as Props;
+const t = dict('news', lang);
+const L = makeL(lang);
 import newsData from '../data/news.json';
 
-interface Props {
-  kaishin_only?: boolean;
-}
-
-const { kaishin_only = false } = Astro.props;
+const { kaishin_only = false } = Astro.props as Props;
 
 // フィルタリング: kaishin_only=true の場合は凱信関連のみ
 let filteredNews = newsData;
@@ -16,19 +17,20 @@ if (kaishin_only) {
 // 日付の新しい順（最新が一番上）に並べ替え、最新8件を常時表示
 const newsList = [...filteredNews]
   .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 8);
+  .slice(0, 8)
+  .map((n) => localizeNews(n as any, lang));
 ---
 <section class="sec sec--wm" id="news" style="padding-top:4rem">
   <div class="sec__in">
     <div class="pl rv" style="border-top:none; padding-top:0;">
-      <div class="plh"><div class="plt">Latest News</div><div class="pld">最新のお知らせ</div></div>
+      <div class="plh"><div class="plt">Latest News</div><div class="pld">{t.news_001}</div></div>
       {newsList.map((news) => (
-      <a href={`/news/${news.id}`} class="pi">
+      <a href={L(`/news/${news.id}`)} class="pi">
         <span class="pi__n" style="font-size:1.1rem; font-family:'DM Sans', sans-serif;">{news.date.replace(/-/g, '.')}</span>
         <span class="pi__nm">{news.title}</span><i data-lucide="arrow-up-right" class="pi__ar" style="width:16px;height:16px"></i>
       </a>
       ))}
-      {newsList.length === 0 && (<div class="pi"><span class="pi__nm" style="color:var(--g5);">現在、お知らせはありません.</span></div>)}
+      {newsList.length === 0 && (<div class="pi"><span class="pi__nm" style="color:var(--g5);">{t.news_002}</span></div>)}
     </div>
   </div>
 </section>

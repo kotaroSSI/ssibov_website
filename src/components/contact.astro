@@ -1,12 +1,18 @@
 ---
+import { dict, makeL, localizeNews, type Lang } from '../i18n';
+interface Props { lang?: Lang; kaishin_only?: boolean }
+const { lang = 'ja' } = Astro.props as Props;
+const t = dict('contact', lang);
+const L = makeL(lang);
+
 ---
 <section class="sec sec--wm" id="contact">
   <div class="sec__in">
     <div class="ctg">
       <div class="rv">
         <div class="ey" style="line-height:1.4;">CONSTRUCTION<br>REQUEST</div>
-        <h2 class="st" style="color:var(--g);margin-bottom:1.5rem">プロジェクト組成の依頼</h2>
-        <p class="sd" style="margin-bottom:3rem">データセンターに係るプロジェクト組成並びに建設・運営・テナント誘致のご相談</p>
+        <h2 class="st" style="color:var(--g);margin-bottom:1.5rem">{t.contact_001}</h2>
+        <p class="sd" style="margin-bottom:3rem">{t.contact_002}</p>
 
         <form class="ctf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
@@ -14,37 +20,37 @@
           <p style="display:none;"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
           <div class="ff" style="border-bottom: 1px solid var(--g3); padding-bottom: 1rem; margin-bottom: 1rem;">
-            <span style="display:block; font-size:0.9rem; color:var(--g5); margin-bottom:0.8rem;">依頼趣旨：</span>
+            <span style="display:block; font-size:0.9rem; color:var(--g5); margin-bottom:0.8rem;">{t.contact_003}</span>
             <div style="display:flex; gap:1rem 2.5rem; flex-wrap:wrap;">
               <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
-                <input type="radio" name="inquiry_type" value="投資" checked /> 投資
+                <input type="radio" name="inquiry_type" value="投資" checked /> {t.contact_004}
               </label>
               <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
-                <input type="radio" name="inquiry_type" value="調査" /> 調査
+                <input type="radio" name="inquiry_type" value="調査" /> {t.contact_005}
               </label>
               <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
-                <input type="radio" name="inquiry_type" value="運営・テナント誘致のご相談" /> 運営・テナント誘致のご相談
+                <input type="radio" name="inquiry_type" value="運営・テナント誘致のご相談" /> {t.contact_006}
               </label>
             </div>
           </div>
 
           <div class="fr">
-            <div class="ff"><input type="text" placeholder="会社名 ※" name="company_name" required/></div>
-            <div class="ff"><input type="text" placeholder="部署名" name="department_name"/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_007} name="company_name" required/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_008} name="department_name"/></div>
           </div>
           
           <div class="fr">
-            <div class="ff"><input type="text" placeholder="ご担当者名 ※" name="contact_name" required/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_009} name="contact_name" required/></div>
             <div class="ff"><input type="email" placeholder="Email Address ※" required name="email"/></div>
           </div>
           
           <div class="fr">
-            <div class="ff"><input type="text" placeholder="受電容量" name="dc_capacity"/></div>
-            <div class="ff"><input type="text" placeholder="住所（都道府県と市町村）" name="dc_address"/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_010} name="dc_capacity"/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_011} name="dc_address"/></div>
           </div>
           
           <div class="ff">
-            <textarea rows="4" maxlength="200" placeholder="各種特殊依頼事項（200字以内）" name="special_requests"></textarea>
+            <textarea rows="4" maxlength="200" placeholder={t.contact_012} name="special_requests"></textarea>
           </div>
 
           <button class="sbtn" type="submit" style="margin-top:1.5rem">
@@ -61,10 +67,7 @@
               HEADQUARTERS
             </div>
             <div style="font-size:0.95rem; line-height:2.2; color:#ffffff; font-weight:300;">
-              〒105-0003<br>
-              東京都港区西新橋2-21-2<br>
-              第一南櫻ビル 6F<br>
-              アンカースター内 SSI
+              <Fragment set:html={t.contact_013} />
             </div>
           </div>
           <div style="display:flex; gap:1.5rem; margin-top:3.5rem;">

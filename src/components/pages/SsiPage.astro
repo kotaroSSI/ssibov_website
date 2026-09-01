@@ -1,0 +1,1111 @@
+---
+import { dict, makeL, localizeNews, type Lang } from '../../i18n';
+import LangSwitch from '../LangSwitch.astro';
+
+interface Props { lang?: Lang }
+const { lang = 'ja' } = Astro.props as Props;
+const t = dict('ssi', lang);
+const L = makeL(lang);
+const PATH = '/ssi/';
+
+import Layout from '../../layouts/Layout.astro';
+import newsData from '../../data/news.json';
+
+// 日付の新しい順（最新が一番上）に並べ替え、最新8件を常時表示
+const newsList = [...newsData]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 8)
+  .map((n) => localizeNews(n as any, lang));
+---
+
+<Layout lang={lang} path={PATH} title={t.top_001}>
+
+<style is:global>
+  /* ========================================================= */
+  /* ヘッダー・ロゴはProjectページと同一（Layout.astroの既定値をそのまま使用） */
+  /* ========================================================= */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 72.5px !important;
+  }
+  .hero__up {
+    padding-top: 0 !important;
+    padding-bottom: 2rem;
+  }
+
+  /* ========================================================= */
+  /* ★ ヒーロー文字サイズの適正化（Layout既定のclampは過大なため縮小） */
+  /* ========================================================= */
+  .hero__t {
+    font-size: clamp(1.8rem, 2.8vw, 2.8rem) !important;
+    line-height: 1.5 !important;
+  }
+  /* 2行目（ゴールドの補足コピー）は一段小さくして階層をつける */
+  .hero__t em {
+    display: block;
+    font-size: 0.6em;
+    margin-top: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .hero__sub {
+    max-width: none !important; /* ★ 手動改行(br)で整形するため幅制限を解除 */
+  }
+  @media (max-width: 768px) {
+    .hero__t { font-size: 1.4rem !important; }
+    .hero__sub br { display: none; } /* ★ スマホでは自然な折り返しに戻す */
+  }
+
+  /* ========================================================= */
+  /* ★ ページ全体のタイポグラフィ階層調整 */
+  /* ヒーロー(最大2.8rem)を頂点に、セクション見出し→カード見出し→本文の */
+  /* 順で段階的に小さくなるようサイズを統一 */
+  /* ========================================================= */
+  .st {
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem) !important; /* セクション見出し（Layout既定の最大3.8remはヒーローより大きく逆転していたため縮小） */
+  }
+  .lc__n {
+    font-size: 1.5rem !important; /* 経営陣の氏名（1.8rem→カード見出し級に統一） */
+  }
+  .ph-c__num {
+    font-size: 2.6rem !important; /* ロードマップの数字（ヒーロー見出しを超えないサイズに） */
+  }
+
+  /* ========================================================= */
+  /* ★ PROJECT ROADMAP：Phase 1削除に伴い350/1,000の2枚を中央に均等配置 */
+  /* ========================================================= */
+  .ph__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .ph-c {
+    padding: 2.2rem 2.5rem !important; /* 2枚構成に合わせ左右余白を拡大 */
+  }
+  @media (max-width: 1024px) {
+    .ph__grid { grid-template-columns: 1fr !important; }
+  }
+  .hero__video video {
+    aspect-ratio: 21.999999999999999999999999999999999999999999 / 9;
+    object-fit: cover;
+  }
+  
+  /* ホバー時の日本語サイズを英語と同じ(1em)に統一 */
+  .nav__l::before, .mmenu a::before, .ft__nav a::before {
+    white-space: nowrap !important;
+    font-size: 1em !important; 
+  }
+  
+  .vis__img video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+    transition: transform 1.5s cubic-bezier(.16,1,.3,1), filter 1s;
+  }
+  .vis__img:hover video {
+    transform: scale(1.04);
+    filter: grayscale(0%);
+  }
+
+  /* ========================================================= */
+  /* 「なぜ鹿児島か」等の説明をホバー時に展開する仕掛け */
+  /* ========================================================= */
+  .why-card {
+    cursor: pointer;
+  }
+  .why-card__panel {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    margin-top: 0 !important;
+    transition: max-height 0.6s ease, opacity 0.6s ease, margin-top 0.6s ease !important;
+  }
+  .why-card:hover .why-card__panel {
+    max-height: 2000px !important; /* コンテンツ全体が収まる十分な高さ */
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-top: 1.5rem !important;
+  }
+  .why-card__title-arrow {
+    display: none !important; 
+  }
+
+  /* ========================================================= */
+  /* アコーディオン内の画像を上下30%伸ばす（縦幅拡張） */
+  /* ========================================================= */
+  .why-card__images .why-card__img img {
+    width: 100% !important;
+    height: auto !important;
+    /* 通常の16:9比率から、高さを30%アップさせた比率(16:11.7)に設定 */
+    aspect-ratio: 16 / 11.7 !important; 
+    object-fit: cover !important;
+  }
+
+  /* ========================================================= */
+  /* PROJECTセクションのタイトル等の左寄せ設定 */
+  /* ========================================================= */
+  #projects .sec__in > .rv:first-child {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+  #projects .ey {
+    justify-content: flex-start !important;
+  }
+
+  /* ========================================================= */
+  /* PROJECTセクションのカードデザイン（黒帯ズーム削除対応） */
+  /* ========================================================= */
+  .pf {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+  @media (max-width: 768px) {
+    .pf {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  .pc {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    background-color: #2b3b36 !important;
+    position: relative !important;
+    overflow: hidden !important; 
+    border-radius: 4px;
+  }
+
+  .pc__video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    transform: scale(1.35) !important;
+    opacity: 0 !important;
+    transition: opacity 0.6s ease !important;
+    z-index: 1 !important;
+  }
+
+  .pc--left .pc__video {
+    object-position: right center !important;
+    transform-origin: right center !important;
+  }
+
+  .pc--right .pc__video {
+    object-position: left center !important;
+    transform-origin: left center !important;
+  }
+
+  .pc:hover .pc__video {
+    opacity: 1 !important;
+  }
+
+  .pc__ov {
+    position: absolute !important;
+    top: auto !important; 
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important; 
+    padding: 2.5rem 2rem !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%) !important;
+    text-align: left !important;
+  }
+  .pc__ph {
+    color: #cca45b !important;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .pc__t {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+  .pc__s {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+  }
+
+  /* ========================================================= */
+  /* フッターの英語文字サイズとカラー変更（分割設定） */
+  /* ========================================================= */
+  .ft__nav a {
+    font-size: 14px !important; 
+    color: #E6FFEF !important; 
+  }
+  .ft__bot span,
+  .ft__bot a {
+    font-size: 14px !important; 
+    color: #E6FFEF !important; 
+  }
+
+  /* ========================================================= */
+  /* モバイルメニュー/サイドメニューの英語文字サイズ */
+  /* ========================================================= */
+  .mmenu a span {
+    font-size: 0.36em !important;
+  }
+
+  /* ========================================================= */
+  /* TRACK RECORD（施工実績）セクション */
+  /* ========================================================= */
+  .tr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  @media (max-width: 900px) {
+    .tr-grid { grid-template-columns: 1fr; }
+  }
+  .tr-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.4s ease, transform 0.4s ease;
+  }
+  .tr-card:hover {
+    background: rgba(255,255,255,0.09);
+    transform: translateY(-4px);
+  }
+  .tr-card__tag {
+    color: #cca45b;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.2rem;
+  }
+  .tr-card__num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: #ffffff;
+  }
+  .tr-card__num span {
+    font-size: 1.4rem;
+    margin-left: 0.2rem;
+  }
+  .tr-card__t {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0.9rem 0 1rem;
+    line-height: 1.6;
+  }
+  .tr-card__d {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+  .tr-partners {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .tr-partners__lb {
+    color: #cca45b;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+  .tr-partner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 0.8rem 1.4rem;
+  }
+  .tr-partner img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+  .tr-partner__t {
+    font-size: 0.8rem;
+    color: #333333;
+    line-height: 1.5;
+  }
+  .tr-note {
+    margin-top: 2.5rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 2;
+    max-width: 820px;
+  }
+
+  /* ========================================================= */
+  /* FACILITY & POWER ENGINEERING（電力・冷却技術）セクション */
+  /* ========================================================= */
+  .fp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  @media (max-width: 900px) {
+    .fp-grid { grid-template-columns: 1fr; }
+  }
+  .fp-card {
+    background: #ffffff;
+    border: 1px solid var(--g1);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+  }
+  .fp-card:hover {
+    box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+  .fp-card__tag {
+    color: var(--au);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .fp-card__num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--g);
+  }
+  .fp-card__num span {
+    font-size: 1.3rem;
+    margin-left: 0.2rem;
+  }
+  .fp-card__t {
+    color: var(--g);
+    font-size: 1.1rem;
+    margin: 0.9rem 0 1rem;
+    line-height: 1.6;
+  }
+  .fp-card__d {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+  .fp-ems {
+    margin-top: 2rem;
+    background: var(--gd);
+    border-radius: 4px;
+    padding: 2.8rem 2.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .fp-ems { grid-template-columns: 1fr; }
+  }
+  .fp-ems__ic { color: var(--au); }
+  .fp-ems__t {
+    color: #ffffff;
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Noto Serif JP', serif;
+  }
+  .fp-ems__d {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+
+  /* ========================================================= */
+  /* NEXT-GEN GPU PLATFORMS（対応プラットフォーム）セクション */
+  /* ========================================================= */
+  .plt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  @media (max-width: 900px) {
+    .plt-grid { grid-template-columns: 1fr; }
+  }
+  .plt-card {
+    background: var(--w);
+    border: 1px solid var(--g1);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+  }
+  .plt-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--au);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(.16,1,.3,1);
+  }
+  .plt-card:hover::before { transform: scaleX(1); }
+  .plt-card:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
+  .plt-card__tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--au);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .plt-card__t {
+    font-size: 1.4rem;
+    color: var(--g);
+    margin-bottom: 0.4rem;
+  }
+  .plt-card__sub {
+    font-size: 0.85rem;
+    color: var(--g5);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  .plt-card__cool {
+    border-top: 1px solid var(--g1);
+    padding-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .plt-cool { display: flex; gap: 0.9rem; align-items: flex-start; }
+  .plt-cool__badge {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-top: 2px;
+  }
+  .plt-cool__badge--l { background: rgba(58,127,255,0.12); color: #2f66cc; }
+  .plt-cool__badge--a { background: rgba(26,184,124,0.12); color: #178f62; }
+  .plt-cool__d { font-size: 0.82rem; line-height: 1.7; color: var(--g5); }
+  .mod-banner {
+    margin-top: 3rem;
+    background: var(--gd);
+    border-radius: 4px;
+    padding: 3rem 2.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .mod-banner { grid-template-columns: 1fr; }
+  }
+  .mod-banner__ic { color: #cca45b; }
+  .mod-banner__t { font-size: 1.4rem; color: #ffffff; margin-bottom: 0.6rem; }
+  .mod-banner__d { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.9; }
+
+  /* ========================================================= */
+  /* GPU世代別ファシリティ要件 早見表 */
+  /* ========================================================= */
+  .gpu-tbl-wrap { margin-top: 3rem; overflow-x: auto; border: 1px solid var(--g1); border-radius: 4px; background:#fff; }
+  .gpu-tbl { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.85rem; }
+  .gpu-tbl th, .gpu-tbl td { padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--g1); text-align: left; vertical-align: top; line-height: 1.6; }
+  .gpu-tbl thead th { background: var(--gd); color: #fff; font-weight: 400; font-size: 0.82rem; }
+  .gpu-tbl thead th small { display:block; color: #cca45b; font-size: 0.72rem; margin-top: 2px; }
+  .gpu-tbl tbody th { background: #f7f6f3; color: var(--g); font-weight: 600; white-space: nowrap; font-size: 0.8rem; }
+  .gpu-tbl tbody td { color: #555; }
+  .gpu-tbl tbody tr:last-child th, .gpu-tbl tbody tr:last-child td { border-bottom: none; }
+  .gpu-tbl-note { margin-top: 1rem; font-size: 0.78rem; color: #999; line-height: 1.8; }
+
+  /* サプライチェーン直結フロー */
+  .sc-flow { margin-top: 3rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; }
+  .sc-flow__step { background: #fff; border: 1px solid var(--g1); border-radius: 4px; padding: 0.9rem 1.3rem; text-align: center; }
+  .sc-flow__step--ssi { background: var(--gd); border-color: var(--gd); }
+  .sc-flow__role { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--au); text-transform: uppercase; margin-bottom: 0.25rem; }
+  .sc-flow__name { font-size: 0.88rem; color: var(--g); line-height: 1.4; }
+  .sc-flow__step--ssi .sc-flow__name { color: #fff; }
+  .sc-flow__arrow { color: var(--au); flex-shrink: 0; }
+
+  /* ========================================================= */
+  /* EPCプロセス（横フロー） */
+  /* ========================================================= */
+  .proc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; margin-top: 4rem; }
+  @media (max-width: 1100px) { .proc-grid { grid-template-columns: 1fr; } }
+  .proc-step { position: relative; background: #fff; border: 1px solid var(--g1); border-radius: 4px; padding: 1.8rem 1.4rem; display: flex; flex-direction: column; }
+  .proc-step__no { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; letter-spacing: 0.15em; color: var(--au); margin-bottom: 0.8rem; }
+  .proc-step__t { font-size: 1.02rem; color: var(--g); margin-bottom: 1rem; font-family: 'Noto Serif JP', serif; }
+  .proc-step__lb { font-size: 0.7rem; letter-spacing: 0.1em; color: #999; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .proc-step__d { font-size: 0.8rem; color: #666; line-height: 1.8; margin-bottom: 1rem; }
+  .proc-step__gpu { margin-top: auto; font-size: 0.78rem; color: var(--g); line-height: 1.7; background: rgba(176,141,59,0.08); border-left: 2px solid var(--au); padding: 0.7rem 0.9rem; }
+  .proc-risks { margin-top: 2.5rem; background: #fff; border: 1px solid var(--g1); border-radius: 4px; padding: 1.8rem 2rem; }
+  .proc-risks__t { font-size: 0.85rem; color: var(--g); font-weight: 600; margin-bottom: 0.8rem; }
+  .proc-risks__i { font-size: 0.85rem; color: #666; line-height: 2; }
+  .proc-risks__i strong { color: var(--g); font-weight: 600; }
+
+  /* TRACK RECORD：フラッグシップカード */
+  .tr-flag { margin-top: 2rem; display: block; background: rgba(255,255,255,0.05); border: 1px solid #cca45b; border-radius: 4px; padding: 2.5rem 2rem; text-decoration: none; transition: background 0.4s ease, transform 0.4s ease; }
+  .tr-flag:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+  .tr-flag__tag { color: #cca45b; font-size: 0.78rem; letter-spacing: 0.12em; margin-bottom: 1.2rem; }
+  .tr-flag__t { color: #fff; font-size: 1.25rem; margin-bottom: 0.9rem; font-family: 'Noto Serif JP', serif; }
+  .tr-flag__d { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.9; margin-bottom: 1.2rem; }
+  .tr-flag__link { color: #cca45b; font-size: 0.85rem; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 0.4rem; }
+
+</style>
+
+<header class="nav" id="nav">
+<div class="nav__i">
+<a href={L("/")} class="nav__logo"><img src="/logo/logo0001.png" alt={t.nav_002}/></a>
+<nav class="nav__ls">
+<a href="#vision" class="nav__l" data-ja={t.nav_003}><span>VISION</span></a>
+<a href="#about" class="nav__l" data-ja={t.nav_004}><span>ABOUT US</span></a>
+<a href="#services" class="nav__l" data-ja={t.nav_005}><span>SERVICE</span></a>
+<a href="#track-record" class="nav__l" data-ja={t.nav_006}><span>TRACK RECORD</span></a>
+<a href="#projects" class="nav__l" data-ja={t.nav_007}><span>PROJECT</span></a>
+<a href="#contact" class="nav__l" data-ja={t.nav_008} style="text-align:center; line-height:1.2;"><span>CONSTRUCTION<br>REQUEST</span></a>
+</nav>
+<LangSwitch lang={lang} path={PATH} />
+<button class="ham" id="ham" aria-label={t.nav_009}><span></span><span></span><span></span></button>
+</div>
+</header>
+<div class="mmenu" id="mm">
+<a href="#vision" onclick="cm()" data-ja={t.nav_010}><span>VISION</span></a>
+<a href="#about" onclick="cm()" data-ja={t.nav_011}><span>ABOUT US</span></a>
+<a href="#services" onclick="cm()" data-ja={t.nav_012}><span>SERVICE</span></a>
+<a href="#track-record" onclick="cm()" data-ja={t.nav_013}><span>TRACK RECORD</span></a>
+<a href="#projects" onclick="cm()" data-ja={t.nav_014}><span>PROJECT</span></a>
+<a href="#contact" onclick="cm()" data-ja={t.nav_015} style="text-align:center; line-height:1.1;"><span>CONSTRUCTION<br>REQUEST</span></a>
+<LangSwitch lang={lang} path={PATH} />
+</div>
+
+<section class="hero">
+<div class="hero__c">
+<div class="hero__up">
+<p class="hero__ey">AI Data Center EPC — Design, Procurement &amp; Construction</p>
+<h1 class="hero__t"><Fragment set:html={t.nav_016} /></h1>
+<p class="hero__sub"><Fragment set:html={t.nav_017} /></p>
+<div class="hero__video">
+<video id="hero-video" src="/movie/modular%20dc%20oveall.mp4" autoplay muted playsinline></video>
+</div>
+</div>
+</div>
+
+<div class="hero__why">
+<div class="why__grid">
+<div class="why-card">
+<div class="why-card__header">
+  <div class="why-card__icon"><i data-lucide="zap" style="width:24px;height:24px"></i></div>
+  <div class="why-card__title">{t.nav_018}</div>
+  <div class="why-card__desc">{t.nav_019}</div>
+</div>
+<div class="why-card__panel"><div class="why-card__panel-inner">
+<div class="why-card__images">
+  <div class="why-card__img"><img src="/image/A001.jpg" alt={t.nav_020}/><div class="why-card__img-caption">{t.nav_021}</div></div>
+  <div class="why-card__img"><img src="/image/A002.jpg" alt={t.nav_022}/><div class="why-card__img-caption">{t.nav_023}</div></div>
+  <div class="why-card__img"><img src="/image/A003.jpg" alt={t.nav_024}/><div class="why-card__img-caption">{t.nav_025}</div></div>
+</div>
+<div class="why-card__detail">
+  {t.nav_026}
+</div>
+</div></div>
+</div>
+<div class="why-card">
+<div class="why-card__header">
+  <div class="why-card__icon"><i data-lucide="brain" style="width:24px;height:24px"></i></div>
+  <div class="why-card__title">{t.nav_027}</div>
+  <div class="why-card__desc">{t.nav_028}</div>
+</div>
+<div class="why-card__panel"><div class="why-card__panel-inner">
+<div class="why-card__images">
+  <div class="why-card__img"><img src="/image/A004.jpg" alt={t.nav_029}/><div class="why-card__img-caption">{t.nav_030}</div></div>
+  <div class="why-card__img"><img src="/image/A005.jpg" alt={t.nav_031}/><div class="why-card__img-caption">{t.nav_032}</div></div>
+  <div class="why-card__img"><img src="/image/A006.jpg" alt={t.nav_033}/><div class="why-card__img-caption">{t.nav_034}</div></div>
+</div>
+<div class="why-card__detail">
+  {t.nav_035}
+</div>
+</div></div>
+</div>
+<div class="why-card">
+<div class="why-card__header">
+  <div class="why-card__icon"><i data-lucide="shield" style="width:24px;height:24px"></i></div>
+  <div class="why-card__title">{t.nav_036}</div>
+  <div class="why-card__desc">{t.nav_037}</div>
+</div>
+<div class="why-card__panel"><div class="why-card__panel-inner">
+<div class="why-card__images">
+  <div class="why-card__img"><img src="/image/A007.jpg" alt={t.nav_038}/><div class="why-card__img-caption">{t.nav_039}</div></div>
+  <div class="why-card__img"><img src="/image/A008.jpg" alt={t.nav_040}/><div class="why-card__img-caption">{t.nav_041}</div></div>
+  <div class="why-card__img"><img src="/image/A009.jpg" alt={t.nav_042}/><div class="why-card__img-caption">{t.nav_043}</div></div>
+</div>
+<div class="why-card__detail">
+  {t.nav_044}
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="hero__ph">
+<div class="ph__lab">Project Roadmap</div>
+<div class="ph__grid">
+<div class="ph-c"><span class="ph-c__st ph-c__st--a">{t.nav_045}</span><div class="ph-c__num">350</div><div class="ph-c__unit">MW — Phase 1</div><div class="ph-c__title">{t.nav_046}</div><div class="ph-c__desc">{t.nav_047}</div><div class="ph-c__bar" style="width:20%"></div></div>
+<div class="ph-c"><span class="ph-c__st ph-c__st--p">{t.nav_048}</span><div class="ph-c__num">1,000</div><div class="ph-c__unit">MW — Phase 2</div><div class="ph-c__title">{t.nav_049}</div><div class="ph-c__desc">{t.nav_050}</div><div class="ph-c__bar" style="width:5%"></div></div>
+</div>
+</div>
+<div class="hero__sc"><span>Scroll</span><div class="hero__sc-l"></div></div>
+</section>
+
+<section class="sec sec--wm" id="news" style="padding-top:4rem">
+<div class="sec__in">
+<div class="pl rv" style="border-top:none; padding-top:0;">
+<div class="plh"><div class="plt">Latest News</div><div class="pld">{t.news_051}</div></div>
+{newsList.map((news) => (
+<a href={L(`/news/${news.id}`)} class="pi">
+<span class="pi__n" style="font-size:1.1rem; font-family:'DM Sans', sans-serif;">{news.date.replace(/-/g, '.')}</span>
+<span class="pi__nm">{news.title}</span><i data-lucide="arrow-up-right" class="pi__ar" style="width:16px;height:16px"></i></a>
+))}
+{newsList.length === 0 && (<div class="pi"><span class="pi__nm" style="color:var(--g5);">{t.news_052}</span></div>)}
+</div>
+</div>
+</section>
+
+<section class="sec sec--c" id="vision">
+<div class="sec__in">
+<div class="vis__g">
+<div class="rv">
+<div class="ey">VISION</div>
+<h2 class="st" style="color:var(--g)"><Fragment set:html={t.vision_053} /></h2>
+<p class="sd" style="margin-bottom:0">{t.vision_054}</p>
+<div class="vis__stats">
+<div><div class="sn">1GW</div><div class="sl">{t.vision_055}</div></div>
+<div><div class="sn">{t.vision_056}</div><div class="sl">{t.vision_057}</div></div>
+<div><div class="sn">65%</div><div class="sl">{t.vision_058}</div></div>
+<div><div class="sn">{t.vision_059}</div><div class="sl">{t.vision_060}</div></div>
+</div>
+</div>
+<div class="vis__img rv" style="transition-delay:.2s">
+  <video src="/movie/movie0006.mp4" autoplay muted loop playsinline></video>
+  <div class="vis__img-ov"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--d" id="about">
+<div class="sec__in">
+<div class="rv" style="max-width:700px">
+<div class="ey">About Us</div>
+<h2 class="st" style="color:var(--w)"><Fragment set:html={t.about_061} /></h2>
+<p class="sd">{t.about_062}</p>
+</div>
+<div class="lg">
+<div class="lc rv"><div class="lc__img"><img src="/image/image0010.jpg" alt={t.about_063}/></div><div class="lc__r">{t.about_064}</div><div class="lc__n">{t.about_065}</div><div class="lc__d">{t.about_066}</div></div>
+<div class="lc rv" style="transition-delay:.15s"><div class="lc__img"><img src="/image/image0011.jpg" alt={t.about_067}/></div><div class="lc__r">{t.about_068}</div><div class="lc__n">{t.about_069}</div><div class="lc__d">{t.about_070}</div></div>
+<div class="lc rv" style="transition-delay:.3s"><div class="lc__img"><img src="/image/image0012.jpg" alt={t.about_071}/></div><div class="lc__r">{t.about_072}</div><div class="lc__n"><Fragment set:html={t.about_073} /><span style="font-size:1.1rem">{t.about_074}</span></div><div class="lc__d">{t.about_075}</div></div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--w" id="services">
+<div class="sec__in">
+<div class="svh rv">
+<div><div class="ey">SERVICES</div><h2 class="st" style="color:var(--g)"><Fragment set:html={t.services_076} /></h2></div>
+<p class="sd">{t.services_077}</p>
+</div>
+<div class="svg2 rv">
+<div class="svc"><div class="svc__ic"><i data-lucide="map" style="width:28px;height:28px"></i></div><div class="svc__t">{t.services_078}</div><div class="svc__d">{t.services_079}</div></div>
+<div class="svc"><div class="svc__ic"><i data-lucide="pen-tool" style="width:28px;height:28px"></i></div><div class="svc__t">{t.services_080}</div><div class="svc__d">{t.services_081}</div></div>
+<div class="svc"><div class="svc__ic"><i data-lucide="server" style="width:28px;height:28px"></i></div><div class="svc__t">{t.services_082}</div><div class="svc__d">{t.services_083}</div></div>
+<div class="svc"><div class="svc__ic"><i data-lucide="hard-hat" style="width:28px;height:28px"></i></div><div class="svc__t">{t.services_084}</div><div class="svc__d">{t.services_085}</div></div>
+<div class="svc"><div class="svc__ic"><i data-lucide="zap" style="width:28px;height:28px"></i></div><div class="svc__t">{t.services_086}</div><div class="svc__d">{t.services_087}</div></div>
+<div class="svc"><div class="svc__ic"><i data-lucide="settings" style="width:28px;height:28px"></i></div><div class="svc__t">{t.services_088}</div><div class="svc__d">{t.services_089}</div></div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--w" id="process">
+<div class="sec__in">
+<div class="rv" style="max-width:760px">
+<div class="ey">EPC PROCESS</div>
+<h2 class="st" style="color:var(--g)"><Fragment set:html={t.process_090} /></h2>
+<p class="sd">{t.process_091}</p>
+</div>
+<div class="proc-grid rv">
+<div class="proc-step">
+  <div class="proc-step__no">STEP 01</div>
+  <div class="proc-step__t">{t.process_092}</div>
+  <div class="proc-step__lb">{t.process_093}</div>
+  <div class="proc-step__d">{t.process_094}</div>
+  <div class="proc-step__gpu">{t.process_095}</div>
+</div>
+<div class="proc-step">
+  <div class="proc-step__no">STEP 02</div>
+  <div class="proc-step__t">{t.process_096}</div>
+  <div class="proc-step__lb">{t.process_097}</div>
+  <div class="proc-step__d">{t.process_098}</div>
+  <div class="proc-step__gpu">{t.process_099}</div>
+</div>
+<div class="proc-step">
+  <div class="proc-step__no">STEP 03</div>
+  <div class="proc-step__t">{t.process_100}</div>
+  <div class="proc-step__lb">{t.process_101}</div>
+  <div class="proc-step__d">{t.process_102}</div>
+  <div class="proc-step__gpu">{t.process_103}</div>
+</div>
+<div class="proc-step">
+  <div class="proc-step__no">STEP 04</div>
+  <div class="proc-step__t">{t.process_104}</div>
+  <div class="proc-step__lb">{t.process_105}</div>
+  <div class="proc-step__d">{t.process_106}</div>
+  <div class="proc-step__gpu">{t.process_107}</div>
+</div>
+<div class="proc-step">
+  <div class="proc-step__no">STEP 05</div>
+  <div class="proc-step__t">{t.process_108}</div>
+  <div class="proc-step__lb">{t.process_109}</div>
+  <div class="proc-step__d">{t.process_110}</div>
+  <div class="proc-step__gpu">{t.process_111}</div>
+</div>
+</div>
+<div class="proc-risks rv">
+  <div class="proc-risks__t">{t.process_112}</div>
+  <div class="proc-risks__i"><Fragment set:html={t.process_113} /></div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--c" id="platforms">
+<div class="sec__in">
+<div class="rv" style="max-width:760px">
+<div class="ey">NEXT-GEN GPU PLATFORMS</div>
+<h2 class="st" style="color:var(--g)"><Fragment set:html={t.platforms_114} /></h2>
+<p class="sd">{t.platforms_115}</p>
+</div>
+<div class="plt-grid rv">
+<div class="plt-card">
+  <div class="plt-card__tag">Blackwell Ultra</div>
+  <div class="plt-card__t">NVIDIA B300</div>
+  <div class="plt-card__sub">{t.platforms_116}</div>
+  <div class="plt-card__cool">
+    <div class="plt-cool"><span class="plt-cool__badge plt-cool__badge--l">{t.platforms_117}</span><span class="plt-cool__d">{t.platforms_118}</span></div>
+    <div class="plt-cool"><span class="plt-cool__badge plt-cool__badge--a">{t.platforms_119}</span><span class="plt-cool__d">{t.platforms_120}</span></div>
+  </div>
+</div>
+<div class="plt-card">
+  <div class="plt-card__tag">Grace Blackwell Ultra</div>
+  <div class="plt-card__t">NVIDIA GB300</div>
+  <div class="plt-card__sub">{t.platforms_121}</div>
+  <div class="plt-card__cool">
+    <div class="plt-cool"><span class="plt-cool__badge plt-cool__badge--l">{t.platforms_122}</span><span class="plt-cool__d">{t.platforms_123}</span></div>
+    <div class="plt-cool"><span class="plt-cool__badge plt-cool__badge--a">{t.platforms_124}</span><span class="plt-cool__d">{t.platforms_125}</span></div>
+  </div>
+</div>
+<div class="plt-card">
+  <div class="plt-card__tag">Next Generation</div>
+  <div class="plt-card__t">NVIDIA Vera Rubin</div>
+  <div class="plt-card__sub">{t.platforms_126}</div>
+  <div class="plt-card__cool">
+    <div class="plt-cool"><span class="plt-cool__badge plt-cool__badge--l">{t.platforms_127}</span><span class="plt-cool__d">{t.platforms_128}</span></div>
+    <div class="plt-cool"><span class="plt-cool__badge plt-cool__badge--a">{t.platforms_129}</span><span class="plt-cool__d">{t.platforms_130}</span></div>
+  </div>
+</div>
+</div>
+<div class="rv" style="margin-top:4rem">
+<div class="ey" style="font-size:0.85rem">{t.platforms_131}</div>
+<div class="gpu-tbl-wrap">
+<table class="gpu-tbl">
+<thead>
+<tr>
+  <th>{t.platforms_132}</th>
+  <th><Fragment set:html={t.platforms_133} /></th>
+  <th><Fragment set:html={t.platforms_134} /></th>
+  <th><Fragment set:html={t.platforms_135} /></th>
+</tr>
+</thead>
+<tbody>
+<tr><th>{t.platforms_136}</th><td>{t.platforms_137}</td><td>{t.platforms_138}</td><td>{t.platforms_139}</td></tr>
+<tr><th>{t.platforms_140}</th><td>{t.platforms_141}</td><td>{t.platforms_142}</td><td>{t.platforms_143}</td></tr>
+<tr><th>{t.platforms_144}</th><td>{t.platforms_145}</td><td>{t.platforms_146}</td><td>{t.platforms_147}</td></tr>
+<tr><th>{t.platforms_148}</th><td>{t.platforms_149}</td><td>{t.platforms_150}</td><td>{t.platforms_151}</td></tr>
+<tr><th>{t.platforms_152}</th><td>{t.platforms_153}</td><td>{t.platforms_154}</td><td>{t.platforms_155}</td></tr>
+<tr><th>{t.platforms_156}</th><td>{t.platforms_157}</td><td>{t.platforms_158}</td><td>{t.platforms_159}</td></tr>
+</tbody>
+</table>
+</div>
+<p class="gpu-tbl-note">{t.platforms_160}</p>
+</div>
+<div class="sc-flow rv">
+  <div class="sc-flow__step"><div class="sc-flow__role">Design</div><div class="sc-flow__name">NVIDIA</div></div>
+  <div class="sc-flow__arrow"><i data-lucide="arrow-right" style="width:18px;height:18px"></i></div>
+  <div class="sc-flow__step"><div class="sc-flow__role">Manufacturing</div><div class="sc-flow__name"><Fragment set:html={t.platforms_161} /></div></div>
+  <div class="sc-flow__arrow"><i data-lucide="arrow-right" style="width:18px;height:18px"></i></div>
+  <div class="sc-flow__step sc-flow__step--ssi"><div class="sc-flow__role">Procurement &amp; EPC</div><div class="sc-flow__name">{t.platforms_162}</div></div>
+  <div class="sc-flow__arrow"><i data-lucide="arrow-right" style="width:18px;height:18px"></i></div>
+  <div class="sc-flow__step"><div class="sc-flow__role">Construction</div><div class="sc-flow__name"><Fragment set:html={t.platforms_163} /></div></div>
+</div>
+<div class="mod-banner rv">
+  <div class="mod-banner__ic"><i data-lucide="boxes" style="width:48px;height:48px"></i></div>
+  <div>
+    <div class="mod-banner__t">{t.platforms_164}</div>
+    <div class="mod-banner__d">{t.platforms_165}</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--w" id="facility">
+<div class="sec__in">
+<div class="rv" style="max-width:760px">
+<div class="ey">FACILITY &amp; POWER ENGINEERING</div>
+<h2 class="st" style="color:var(--g)"><Fragment set:html={t.facility_166} /></h2>
+<p class="sd">{t.facility_167}</p>
+</div>
+<div class="fp-grid rv">
+<div class="fp-card">
+  <div class="fp-card__tag">Server Utilization</div>
+  <div class="fp-card__num">82<span>%</span></div>
+  <div class="fp-card__t">{t.facility_168}</div>
+  <div class="fp-card__d">{t.facility_169}</div>
+</div>
+<div class="fp-card">
+  <div class="fp-card__tag">Cooling Efficiency</div>
+  <div class="fp-card__num">PUE 1.2</div>
+  <div class="fp-card__t">{t.facility_170}</div>
+  <div class="fp-card__d">{t.facility_171}</div>
+</div>
+<div class="fp-card">
+  <div class="fp-card__tag">Substation &amp; Distribution</div>
+  <div class="fp-card__num">220<span>kV → 20kV</span></div>
+  <div class="fp-card__t">{t.facility_172}</div>
+  <div class="fp-card__d">{t.facility_173}</div>
+</div>
+</div>
+<div class="fp-ems rv">
+  <div class="fp-ems__ic"><i data-lucide="activity" style="width:48px;height:48px"></i></div>
+  <div>
+    <div class="fp-ems__t">{t.facility_174}</div>
+    <div class="fp-ems__d">{t.facility_175}</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="sec sec--d" id="track-record">
+<div class="sec__in">
+<div class="rv" style="max-width:760px">
+<div class="ey">TRACK RECORD</div>
+<h2 class="st" style="color:var(--w)"><Fragment set:html={t.track_record_176} /></h2>
+<p class="sd">{t.track_record_177}</p>
+</div>
+<div class="tr-grid rv">
+<div class="tr-card">
+  <div class="tr-card__tag">POWER INFRASTRUCTURE</div>
+  <div class="tr-card__num">350<span>MW</span></div>
+  <div class="tr-card__t">{t.track_record_178}</div>
+  <div class="tr-card__d">{t.track_record_179}</div>
+</div>
+<div class="tr-card">
+  <div class="tr-card__tag">TOKYO — AI SERVER DEPLOYMENT</div>
+  <div class="tr-card__num">5<span>{t.track_record_180}</span></div>
+  <div class="tr-card__t">{t.track_record_181}</div>
+  <div class="tr-card__d"><Fragment set:html={t.track_record_182} /><span style="color:#cca45b; font-size:0.82rem;">{t.track_record_183}</span></div>
+</div>
+<div class="tr-card">
+  <div class="tr-card__tag">TOKYO — AI SERVER DEPLOYMENT</div>
+  <div class="tr-card__num">20<span>MW</span></div>
+  <div class="tr-card__t">{t.track_record_184}</div>
+  <div class="tr-card__d"><Fragment set:html={t.track_record_185} /><span style="color:#cca45b; font-size:0.82rem;">{t.track_record_186}</span></div>
+</div>
+</div>
+<a class="tr-flag rv" href={L("/project")}>
+  <div class="tr-flag__tag">{t.track_record_187}</div>
+  <div class="tr-flag__t">{t.track_record_188}</div>
+  <div class="tr-flag__d">{t.track_record_189}</div>
+  <div class="tr-flag__link">{t.track_record_190} <i data-lucide="arrow-up-right" style="width:16px;height:16px"></i></div>
+</a>
+<div class="tr-partners rv">
+<div class="tr-partners__lb">{t.track_record_191}</div>
+<div class="tr-partner"><img src="/logo/KRAFTIALogo.jpg" alt={t.track_record_192}/><div class="tr-partner__t"><Fragment set:html={t.track_record_193} /></div></div>
+<div class="tr-partner"><img src="/logo/SeikoLogo.jpg" alt={t.track_record_194}/><div class="tr-partner__t">{t.track_record_195}</div></div>
+</div>
+<p class="tr-note rv">{t.track_record_196}</p>
+</div>
+</section>
+
+<section class="sec sec--c" id="projects">
+<div class="sec__in">
+<div class="rv" style="margin-bottom:5rem">
+<div class="ey">PROJECT</div>
+<h2 class="st" style="color:var(--g)"><Fragment set:html={t.projects_197} /></h2>
+</div>
+<div class="pf rv">
+  
+  <div class="pc project-card pc--left">
+    <video class="pc__video" src="/movie/movie0007.mp4" muted loop playsinline></video>
+    <div class="pc__ov">
+      <div class="pc__ph">PHASE 1 — PROOF OF CONCEPT</div>
+      <div class="pc__t">{t.projects_198}</div>
+      <div class="pc__s">{t.projects_199}</div>
+    </div>
+  </div>
+
+  <div class="pc project-card pc--right">
+    <video class="pc__video" src="/movie/movie0001.mp4" muted loop playsinline></video>
+    <div class="pc__ov">
+      <div class="pc__ph">PHASE 2 & 3 — FULL SCALE</div>
+      <div class="pc__t">{t.projects_200}</div>
+      <div class="pc__s">{t.projects_201}</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+
+<section class="sec sec--wm" id="contact">
+  <div class="sec__in">
+    <div class="ctg">
+      <div class="rv">
+        <div class="ey" style="line-height:1.4;">CONSTRUCTION<br>REQUEST</div>
+        <h2 class="st" style="color:var(--g);margin-bottom:1.5rem">{t.contact_202}</h2>
+        <p class="sd" style="margin-bottom:3rem">{t.contact_203}</p>
+
+        <form class="ctf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="subject" value="【仕事依頼】ホームページからの直接依頼" />
+          <p style="display:none;"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+
+          <div class="ff" style="border-bottom: 1px solid var(--g3); padding-bottom: 1rem; margin-bottom: 1rem;">
+            <span style="display:block; font-size:0.9rem; color:var(--g5); margin-bottom:0.8rem;">{t.contact_204}</span>
+            <div style="display:flex; gap:3rem; flex-wrap:nowrap; overflow-x:auto;">
+              <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
+                <input type="radio" name="inquiry_type" value="設計" checked /> {t.contact_205}
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
+                <input type="radio" name="inquiry_type" value="調達" /> {t.contact_206}
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.95rem; color:var(--ch); white-space:nowrap; letter-spacing:0.05em;">
+                <input type="radio" name="inquiry_type" value="建設・施工" /> {t.contact_207}
+              </label>
+            </div>
+          </div>
+
+          <div class="fr">
+            <div class="ff"><input type="text" placeholder={t.contact_208} name="company_name" required/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_209} name="department_name"/></div>
+          </div>
+
+          <div class="fr">
+            <div class="ff"><input type="text" placeholder={t.contact_210} name="contact_name" required/></div>
+            <div class="ff"><input type="email" placeholder="Email Address ※" required name="email"/></div>
+          </div>
+
+          <div class="fr">
+            <div class="ff"><input type="text" placeholder={t.contact_211} name="dc_capacity"/></div>
+            <div class="ff"><input type="text" placeholder={t.contact_212} name="dc_address"/></div>
+          </div>
+
+          <div class="ff">
+            <textarea rows="4" maxlength="200" placeholder={t.contact_213} name="special_requests"></textarea>
+          </div>
+
+          <button class="sbtn" type="submit" style="margin-top:1.5rem">
+            <span>Submit Inquiry</span><span class="sbtn__l"></span>
+          </button>
+        </form>
+      </div>
+
+      <div class="rv" style="transition-delay:.2s; display:flex; flex-direction:column; gap:2rem;">
+
+        <div style="background:var(--gd); padding:3.5rem; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 20px 40px rgba(0,0,0,0.05);">
+          <div>
+            <div style="font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--au); font-weight:600; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(255,255,255,.08);">
+              HEADQUARTERS
+            </div>
+            <div style="font-size:0.95rem; line-height:2.2; color:#ffffff; font-weight:300;">
+              <Fragment set:html={t.contact_214} />
+            </div>
+          </div>
+          <div style="display:flex; gap:1.5rem; margin-top:3.5rem;">
+            <a href="mailto:info@ssibov.com" style="color:var(--au); transition:color .3s;"><i data-lucide="mail" style="width:24px;height:24px"></i></a>
+          </div>
+        </div>
+
+        <div style="box-shadow:0 20px 40px rgba(0,0,0,0.08); width:100%; aspect-ratio: 1 / 1; position:relative;">
+          <div style="position:absolute; inset:0; background:var(--g1); z-index:0;"></div>
+          <video src="/movie/contact.mp4" autoplay muted loop playsinline style="position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block;"></video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+<div class="ft__in">
+<div class="ft__top">
+<div class="ft__cta"><Fragment set:html={t.contact_215} /></div>
+<div class="ft__nav">
+<a href="#vision" data-ja={t.contact_216}><span>VISION</span></a>
+<a href="#about" data-ja={t.contact_217}><span>ABOUT US</span></a>
+<a href="#services" data-ja={t.contact_218}><span>SERVICE</span></a>
+<a href="#track-record" data-ja={t.contact_219}><span>TRACK RECORD</span></a>
+<a href="#projects" data-ja={t.contact_220}><span>PROJECT</span></a>
+<a href="#contact" data-ja={t.contact_221} style="text-align:right; line-height:1.2;"><span>CONSTRUCTION<br>REQUEST</span></a>
+</div>
+</div>
+<div class="ft__bot">
+<span>&copy; 2026 Shinetsu Science Industry Co., Ltd. All Rights Reserved.</span>
+<div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+</div>
+</div>
+</footer>
+
+<script is:inline>
+  // ヒーロー動画のループ設定
+  const heroVideo = document.getElementById('hero-video');
+  const playlist = [
+    '/movie/modular%20dc%20oveall.mp4',
+    '/movie/modular%20dc%20engineering.mp4',
+    '/movie/movieXXXX.mp4',
+    encodeURI('/movie/PDU電源ケーブル接続動画生成.mp4'),
+    '/movie/movie00A3.mp4'
+  ];
+  let currentVideoIndex = 0;
+  if (heroVideo) {
+    heroVideo.addEventListener('ended', () => {
+      currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
+      heroVideo.src = playlist[currentVideoIndex];
+      // 最後の動画のみ映る範囲を上方向に20%ずらす（他の動画は中央のまま）
+      heroVideo.style.objectPosition = currentVideoIndex === playlist.length - 1 ? '50% 30%' : '';
+      heroVideo.play().catch(e => console.log('Play error:', e));
+    });
+  }
+
+  // PROJECTセクションのホバー動画再生ロジック
+  document.addEventListener("DOMContentLoaded", () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+      const video = card.querySelector('.pc__video');
+      if (video) {
+        card.addEventListener('mouseenter', () => {
+          video.play().catch(e => console.error("Video play prevented:", e));
+        });
+        card.addEventListener('mouseleave', () => {
+          video.pause();
+        });
+      }
+    });
+  });
+</script>
+
+</Layout>

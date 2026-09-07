@@ -11,7 +11,6 @@ const PATH = '/project/';
 import Layout from '../../layouts/Layout.astro';
 import News from '../news.astro';
 import Aboutksdi from '../aboutksdi.astro';
-import Services from '../services.astro';
 import Contact from '../contact.astro';
 
 // ===== SEO：検索結果の表示（タイトル・説明文）と構造化データ =====
@@ -183,7 +182,7 @@ const orgLd = {
   }
 
   /* ========================================================= */
-  /* VISIONセクション：動画の位置 */
+  /* VISIONセクション：動画の位置（旧レイアウト・現在未使用） */
   /* ========================================================= */
   .vis__img {
     position: relative;
@@ -197,6 +196,58 @@ const orgLd = {
     height: 100%;
     object-fit: cover;
     object-position: right bottom;
+  }
+
+  /* ========================================================= */
+  /* ★ VISIONセクション：動画を全幅背景にし、テキストを重ねて表示 */
+  /* ========================================================= */
+  .pjv { padding: 0 !important; }
+  .pjv__media {
+    position: relative;
+    width: 100%;
+    min-height: 680px;
+    overflow: hidden;
+    background: #000;
+  }
+  .pjv__media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .pjv__cap {
+    position: absolute;
+    top: 4rem;
+    left: 4vw;
+    z-index: 2;
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0,0,0,.55);
+  }
+  .pjv__cap-ja { font-size: 1.6rem; font-weight: 700; letter-spacing: .03em; }
+  .pjv__cap-en { margin-top: .4rem; font-size: 1rem; letter-spacing: .12em; opacity: .9; }
+  .pjv__card {
+    position: absolute;
+    left: 4vw;
+    bottom: 4rem;
+    z-index: 2;
+    max-width: 480px;
+    width: calc(100% - 8vw);
+    background: var(--cr);
+    padding: 3rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,.3);
+  }
+
+  @media (max-width: 1024px) {
+    .pjv__media { min-height: 560px; }
+    .pjv__card { max-width: 420px; padding: 2.5rem; }
+  }
+  @media (max-width: 768px) {
+    .pjv__media { min-height: 520px; }
+    .pjv__cap { top: 2rem; }
+    .pjv__cap-ja { font-size: 1.1rem; }
+    .pjv__cap-en { font-size: .85rem; }
+    .pjv__card { left: 5vw; bottom: 2rem; width: calc(100% - 10vw); max-width: none; padding: 1.75rem; }
   }
 </style>
 
@@ -325,27 +376,26 @@ const orgLd = {
 
 <News kaishin_only={true} lang={lang} />
 
-<section class="sec sec--c" id="vision">
-  <div class="sec__in">
-    <div class="vis__g">
-      <div class="rv">
-        <div class="ey">VISION</div>
-        <!-- ★ タイトルのテキスト変更 -->
-        <h2 class="st" style="color:var(--g)"><Fragment set:html={t.vision_048} /></h2>
-        <p class="sd">{t.vision_049}</p>
-        <div class="vis__stats">
-          <div><div class="sn">1GW</div><div class="sl">{t.vision_050}</div></div>
-        </div>
-      </div>
-      <div class="vis__img rv">
-        <video src="/movie/movie0006.mp4" autoplay muted loop playsinline></video>
+<section class="sec sec--c pjv" id="vision">
+  <div class="pjv__media">
+    <video src="/movie/movie0006.mp4" autoplay muted loop playsinline></video>
+    <div class="pjv__cap">
+      <div class="pjv__cap-ja">鹿児島県薩摩川内市PROJECT</div>
+      <div class="pjv__cap-en">Satsumasendai Project</div>
+    </div>
+    <div class="pjv__card rv">
+      <div class="ey">VISION</div>
+      <!-- ★ タイトルのテキスト変更 -->
+      <h2 class="st" style="color:var(--g)"><Fragment set:html={t.vision_048} /></h2>
+      <p class="sd">{t.vision_049}</p>
+      <div class="vis__stats">
+        <div><div class="sn">1GW</div><div class="sl">{t.vision_050}</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <Aboutksdi lang={lang} />
-<Services lang={lang} />
 <Contact lang={lang} />
 
 <footer class="ft">
